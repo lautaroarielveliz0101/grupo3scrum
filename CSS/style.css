@@ -7,14 +7,58 @@
     --chip: #26262a;
     --borde: #2c2c31;
     --texto: #d4d4d8;
-    --texto-suave: #a1a1aa; 
+    --texto-suave: #a1a1aa;
 }
 
-body{
+.body{
     background-color: var(--negro);
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
 }
-.container{
+
+.container {
     max-width: 1200px;
 }
+
+/* css de datos claves */
+#datos-clave {
+    margin-top: 32px;
+    padding-inline: 20px;
+}
+
+.datos-container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.datos-box {
+    min-height: 155px;
+    margin: 0;
+    padding: 0 15px;
+
+    background-color: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+.dato {
+    padding: 28px 32px;
+}
+
+.dato h2 {
+    margin: 0 0 4px;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--rojo);
+}
+
+.dato p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--texto);
+}
+/* fin css de datos claves */
