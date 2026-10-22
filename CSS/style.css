@@ -1,0 +1,20 @@
+:root {
+    --rojo: #e0202a;
+    --rojo-oscuro: #a50d14;
+    --rojo-profundo: #6e070c;
+    --negro: #0b0b0c;
+    --superficie: #111113;
+    --chip: #26262a;
+    --borde: #2c2c31;
+    --texto: #d4d4d8;
+    --texto-suave: #a1a1aa; 
+}
+
+body{
+    background-color: var(--negro);
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-optical-sizing: auto;
+}
+.container{
+    max-width: 1200px;
+}
