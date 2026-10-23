@@ -9,7 +9,11 @@
     --texto: #d4d4d8;
     --texto-suave: #a1a1aa;
 }
-
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 .body{
     background-color: var(--negro);
     font-family: "Plus Jakarta Sans", sans-serif;
@@ -62,3 +66,284 @@
     color: var(--texto);
 }
 /* fin css de datos claves */
+
+/*inicio de baner-publicidad*/
+.main-container {
+  max-width: 1232px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+/* ===== HERO (RC-01) ===== */
+.hero-card {
+  background: linear-gradient(160deg, var(--rojo) 0%, var(--rojo-oscuro) 55%, var(--rojo-profundo) 100%);
+  border-radius: 40px;
+  padding: 48px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 460px;
+  gap: 40px;
+  align-items: center;
+}
+
+.badge-top {
+  font-size: 26px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.badge-top .work-itala {
+  font-weight: 300;
+  font-style: italic;
+  color: var(--texto);
+}
+
+.badge-top .entradas-lim {
+  font-weight: 800;
+  color: var(--texto);
+}
+
+.hero-title {
+  font-size: 80px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -1.5px;
+  margin-bottom: 24px;
+}
+
+.hero-title .linea-blanca {
+  color: var(--texto);
+}
+
+.hero-title .linea-negra {
+  color: var(--negro);
+}
+
+.hero-description {
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--texto);
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* ===== Botones del hero ===== */
+.btn-hero-dark,
+.btn-hero-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 800;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease,
+              border-color 0.25s ease, transform 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+/* Comprar entrada: negro -> blanco */
+.btn-hero-dark {
+  background-color: var(--rojo);
+  color: var(--texto);
+  border: 2px solid var(--texto);
+  padding: 10px 28px;
+}
+
+.btn-hero-dark:hover {
+  background-color: var(--negro);
+  color: var(--texto);
+  border-color: var(--negro);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* Ver agenda: contorno -> negro */
+.btn-hero-outline {
+  background-color: transparent;
+  color: var(--blanco);
+  border: 2px solid var(--blanco);
+  padding: 10px 28px;
+}
+
+.btn-hero-outline:hover {
+  background-color: var(--negro);
+  color: var(--blanco);
+  border-color: var(--negro);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+.btn-hero-dark:active,
+.btn-hero-outline:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-hero-dark:focus-visible,
+.btn-hero-outline:focus-visible,
+.chip-item:focus-visible,
+.btn-publicidad:focus-visible {
+  outline: 3px solid var(--blanco);
+  outline-offset: 3px;
+}
+
+/* ===== Tarjeta interna del hero ===== */
+.event-details-card {
+  background-color: var(--negro);
+  border-radius: 28px;
+  border: 1px solid var(--borde);
+  padding: 32px;
+}
+
+.event-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.event-item i {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.icon-rojo {
+  color: var(--rojo);
+}
+
+.event-title {
+  font-weight: 800;
+  color: var(--texto);
+  font-size: 22px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.event-title-lg {
+  font-size: 28px;
+}
+
+.event-sub {
+  font-size: 34px;
+  font-weight: 400;
+  color: var(--texto);
+  margin: 0;
+  line-height: 1.1;
+}
+
+.event-detail {
+  font-size: 19px;
+  color: var(--texto-suave);
+  margin: 0;
+}
+
+.hr-custom {
+  border: none;
+  border-top: 1px solid var(--borde);
+  margin: 20px 0;
+}
+
+/* ===== Chips ===== */
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.chip-item {
+  background-color: var(--superficie);
+  border: 1px solid var(--borde);
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.chip-item:hover {
+  background-color: var(--rojo);
+  border-color: var(--rojo);
+}
+
+
+.chip-rojo:hover {
+  background-color: var(--rojo-oscuro);
+  border-color: var(--rojo-oscuro);
+  transform: translateY(-2px);
+}
+
+
+
+/* ===================================================
+   RESPONSIVE (Celulares y Tablets)
+   =================================================== */
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hero-card {
+    padding: 24px 16px;
+  }
+
+  .badge-top {
+    font-size: 18px;
+  }
+
+  .hero-title {
+    font-size: 40px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .event-details-card {
+    padding: 24px 20px;
+  }
+
+  .event-title-lg {
+    font-size: 24px;
+  }
+
+  .event-sub {
+    font-size: 28px;
+  }
+
+  .banner-publicidad {
+    height: auto;
+    padding: 48px 20px 24px 20px;
+  }
+
+  .banner-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 0;
+  }
+
+  .etiqueta-publicidad {
+    left: 20px;
+    text-align: left;
+  }
+}
+/*fin del baner*/
