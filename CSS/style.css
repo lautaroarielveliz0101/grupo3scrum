@@ -1,29 +1,42 @@
+/* ==========================================
+   1. VARIABLES GLOBALES Y CONFIGURACIÓN
+   ========================================== */
 :root {
     --rojo: #e0202a;
     --rojo-oscuro: #a50d14;
-    --rojo-profundo: #6e070c;
     --negro: #0b0b0c;
-    --superficie: #111113;
-    --chip: #26262a;
-    --borde: #2c2c31;
+    --superficie: #121214;
+    --borde: #26262a;
     --texto: #d4d4d8;
-    --texto-suave: #a1a1aa;
+    --texto-suave: #8e8e93;
 }
 
-.body{
-    background-color: var(--negro);
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-optical-sizing: auto;
+/* Reseteo general */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-optical-sizing: auto;
 }
 
-.container {
-    max-width: 1200px;
+body {
+  background-color: #0b0b0c !important;
+  color: #ffffff !important;
+  min-height: 100vh;
+  padding-bottom: 4rem;
 }
 
-/* css de datos claves */
+
+/* ==========================================
+   2. ESTILOS DE DATOS CLAVE (RC-03)
+   ========================================== */
 #datos-clave {
     margin-top: 32px;
     padding-inline: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .datos-container {
@@ -36,15 +49,17 @@
     min-height: 155px;
     margin: 0;
     padding: 0 15px;
-
     background-color: var(--superficie);
     border: 1px solid var(--borde);
     border-radius: 28px;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .dato {
     padding: 28px 32px;
+    flex: 1;
 }
 
 .dato h2 {
@@ -61,4 +76,200 @@
     line-height: 1.4;
     color: var(--texto);
 }
-/* fin css de datos claves */
+
+
+/* ==========================================
+   3. SECCIÓN Y TARJETAS DE PRECIOS (RC-08)
+   ========================================== */
+.pricing-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+  padding: 0 20px;
+}
+
+/* Grid contenedor centrado y con ancho máximo controlado (como al principio) */
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+/* Estilos base de las tarjetas (forzamos fondo oscuro y anulamos Bootstrap) */
+.pricing-card {
+  border-radius: 24px !important;
+  padding: 2.2rem 2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  background-color: transparent;
+  color: #5a2f2f !important;
+}
+
+/* Tarjeta 3 (Virtual): ocupa las 2 columnas */
+.card-full {
+  grid-column: 1 / -1;
+}
+
+/* Variante Roja (Early Bird) */
+.card-red {
+  background: linear-gradient(160deg, #e0202a 0%, #a50d14 55%, #6e070c 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* Variante Oscura (General y Virtual) - Forzamos el negro para que Bootstrap no ponga blanco */
+.card-dark {
+  background-color: #121214 !important;
+  border: 1px solid #26262a !important;
+  color: #ffffff !important;
+}
+
+/* Header de la tarjeta */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff !important;
+}
+
+/* Badges / Pastillas superiores */
+.badge {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 50px;
+  font-weight: 500;
+}
+
+.badge-solid {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: none;
+}
+
+.badge-outline {
+  border: 1px solid #3f3f46 !important;
+  color: #a1a1aa !important;
+  background-color: transparent !important;
+}
+
+/* Precios */
+.card-price-container {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.card-price {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #ffffff !important;
+}
+
+.card-old-price {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-decoration: line-through;
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.card-dark .card-subtitle {
+  color: #8e8e93 !important;
+}
+
+/* Lista de características */
+.card-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2.5rem;
+  flex-grow: 1;
+}
+
+.card-features li {
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #ffffff !important;
+}
+
+/* Tildes (Rojos en las tarjetas negras, Blancos en la roja) */
+.card-red .check {
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.card-dark .check {
+  color: #e52e2e !important;
+  font-weight: bold;
+}
+
+/* Botones */
+.btn {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Botón Blanco (Early Bird) */
+.btn-white {
+  background: linear-gradient(160deg, #e0202a 0%, #a50d14 55%, #6e070c 100%) !important;
+  color: #be0c0c !important;
+  border: 2px solid #ffffff !important;
+}
+
+.btn-white:hover {
+  background-color: #ffffff !important;
+  background-image: none !important;
+  color: #000000 !important;
+  border-color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Botón Delineado (General y Virtual) */
+.btn-outline {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+}
+
+.btn-outline:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+}
+
+
+/* ==========================================
+   4. MEDIA QUERIES (RESPONSIVO)
+   ========================================== */
+@media (max-width: 650px) {
+  .pricing-container {
+    grid-template-columns: 1fr;
+  }
+}
