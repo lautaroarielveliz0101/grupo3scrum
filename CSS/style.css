@@ -1791,6 +1791,7 @@ header {
   z-index: 99999;
 }
 
+
 /* ===== NAVBAR ===== */
 .navbar {
   width: 100%;
@@ -1825,6 +1826,13 @@ header {
   width: auto;
   max-width: 240px;
   object-fit: contain;
+}
+
+/* ===== CONTENEDOR DEL MENÚ ===== */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
 }
 
 /* ===== LINKS ===== */
@@ -1885,8 +1893,36 @@ header {
   background-color: #c91b24;
 }
 
+/* ===== HAMBURGUESA OCULTA EN COMPUTADORA ===== */
+.menu-checkbox,
+.menu-hamburguesa {
+  display: none;
+}
+
+/* ===== ANIMACIÓN HAMBURGUESA A X ===== */
+
+.menu-hamburguesa span {
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+/* Primera línea */
+.menu-checkbox:checked + .menu-hamburguesa span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+/* Línea del medio: desaparece */
+.menu-checkbox:checked + .menu-hamburguesa span:nth-child(2) {
+  opacity: 0;
+}
+
+/* Tercera línea */
+.menu-checkbox:checked + .menu-hamburguesa span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 /* ===== CELULARES ===== */
 @media (max-width: 700px) {
+
   .navbar {
     height: auto;
     min-height: 93px;
@@ -1899,10 +1935,12 @@ header {
     gap: 12px;
     flex-wrap: wrap;
     justify-content: space-between;
+    position: relative;
   }
 
+  /* Logo */
   .navbar-logo {
-    max-width: calc(100% - 175px);
+    max-width: calc(100% - 55px);
   }
 
   .navbar-logo img {
@@ -1910,22 +1948,74 @@ header {
     max-width: 100%;
   }
 
-  .btn-entrada {
-    width: 155px;
-    height: 45px;
-    font-size: 14px;
+  /* Checkbox invisible, pero funcional */
+  .menu-checkbox {
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
   }
 
-  .navbar-links {
+  /* Icono hamburguesa */
+  .menu-hamburguesa {
+    display: block;
+    cursor: pointer;
+    padding: 8px;
+    flex-shrink: 0;
+    order: 2;
+  }
+
+  .menu-hamburguesa span {
+    display: block;
+    width: 27px;
+    height: 2px;
+    margin: 6px 0;
+    border-radius: 2px;
+    background-color: #ffffff;
+    transition: 0.2s ease;
+  }
+
+  /* Menú cerrado por defecto */
+  .navbar-menu {
+    display: none;
     order: 3;
     width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 12px 0 8px;
+    border-top: 1px solid #2c2c31;
+  }
+
+  /* Abrir menú al activar la hamburguesa */
+  .menu-checkbox:checked ~ .navbar-menu {
+    display: flex;
+  }
+
+  /* Enlaces en columna */
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
     margin: 0;
-    padding: 8px 0 4px;
-    justify-content: space-between;
-    gap: 10px;
+    padding: 0;
+    gap: 0;
   }
 
   .navbar-links a {
+    display: block;
+    padding: 12px 0;
+    font-size: 14px;
+  }
+
+  /* Botón dentro del menú */
+  .btn-entrada {
+    width: 100%;
+    height: 45px;
     font-size: 14px;
   }
 }
