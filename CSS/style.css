@@ -199,6 +199,443 @@
 }
 
 /* fin css de agenda */
+/* css de entradas */
+
+/* =========================================================
+   CONTENEDOR ROJO
+   ========================================================= */
+.checkout-contenedor {
+    margin: auto;
+    background: linear-gradient(160deg, #e0202a 0%, #a50d14 55%, #6e070c 100%);
+    min-height: 120px;
+    max-width: 1200px;
+    border-radius: 28px;
+    padding: 52px;
+    color: #f4f4f5;
+}
+
+.checkout-compra-segura p {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: white;
+}
+
+/* =========================================================
+   TÍTULO + PASOS
+   ========================================================= */
+.checkout-caja-titulo {
+    align-items: center;
+    gap: 30px;
+}
+
+.checkout-caja-titulo h2 {
+    font-size: clamp(28px, 5vw, 64px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin: 0;
+    color: white;
+    white-space: nowrap;
+}
+
+.checkout-caja-titulo > div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.checkout-caja-titulo button {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.checkout-caja-titulo button:hover {
+    background: var(--negro);
+    border-color: var(--negro);
+}
+
+/* =========================================================
+   LAYOUT DE DOS COLUMNAS
+   ========================================================= */
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1.43fr 1fr;
+    gap: 24px;
+    align-items: start;
+    margin-top: 30px;
+}
+
+/* =========================================================
+   FORMULARIO BLANCO
+   ========================================================= */
+.checkout-entrada {
+    background-color: #fff;
+    color: #111;
+    padding: 34px;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.checkout-entrada h3 {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0 0 18px;
+}
+
+.checkout-tipo-entrada {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 20px;
+    min-height: 72px;
+    margin-bottom: 10px;
+    border: 1px solid #dedee2;
+    border-radius: 18px;
+    background: #fff;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background .3s, border-color .3s, color .3s;
+}
+
+.checkout-tipo-entrada h4 {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0 0 2px;
+}
+
+.checkout-tipo-entrada span p {
+    color: #85858b;
+    font-size: 13px;
+    margin: 0;
+}
+
+.checkout-tipo-entrada > p {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Hover y seleccionada comparten exactamente el mismo estilo */
+.checkout-tipo-entrada:hover,
+.checkout-tipo-entrada.activa {
+    background: #090909;
+    border-color: #090909;
+    color: #fff;
+}
+
+.checkout-tipo-entrada:focus-visible {
+    outline: 2px solid #090909;
+    outline-offset: 3px;
+}
+
+/* Cantidad */
+.checkout-control-cantidad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 22px;
+}
+
+.checkout-control-cantidad h4 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.checkout-contador {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkout-contador button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #dedee2;
+    background: #fff;
+    color: #111;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.checkout-cantidad-entradas {
+    width: 30px;
+    border: none;
+    background: transparent;
+    color: #111;
+    font-size: 22px;
+    font-weight: 800;
+    text-align: center;
+    outline: none;
+}
+
+/* Continuar */
+.checkout-continuar {
+    width: 100%;
+    min-height: 55px;
+    border: none;
+    border-radius: 50px;
+    background: #090909;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.checkout-continuar:hover {
+    background: #292929;
+}
+
+/* Aclaración inferior */
+.checkout-aclaracion {
+    color: #85858b;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 22px 0 0;
+}
+
+/* =========================================================
+   TARJETA "TU PEDIDO"
+   ========================================================= */
+.pedido {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30px;
+    border-radius: 28px;
+    background: var(--negro);
+    color: #fff;
+}
+
+.pedido *,
+.pedido *::before,
+.pedido *::after {
+    box-sizing: border-box;
+}
+
+.pedido p,
+.pedido h3,
+.pedido h4 {
+    margin: 0;
+}
+
+/* TU PEDIDO */
+.pedido__eyebrow {
+    margin-bottom: 18px;
+    color: var(--rojo);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+/* Título + info */
+.pedido__evento {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--borde);
+}
+
+.pedido__titulo {
+    margin-bottom: 6px;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.pedido__info {
+    color: var(--texto-suave);
+    font-size: 14px;
+}
+
+/* Detalle */
+.pedido__detalle {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--borde);
+}
+
+.pedido__fila {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+}
+
+.pedido__fila--entrada p {
+    color: #fff;
+    font-weight: 500;
+}
+
+.pedido__fila--cargo p {
+    color: var(--texto);
+}
+
+/* Total */
+.pedido__total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 22px;
+}
+
+.pedido__total h4 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pedido__total p {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+/* Pie */
+.pedido__pie {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 22px;
+    color: var(--texto-suave);
+    font-size: 13px;
+}
+
+.pedido__pie i {
+    color: var(--rojo);
+    font-size: 14px;
+}
+
+/* =========================================================
+   RESPONSIVE (tablet)
+   ========================================================= */
+@media (max-width: 900px) {
+    .checkout-compra-segura p {
+        font-size: 14px;
+    }
+
+    .checkout-caja-titulo {
+        flex-direction: column;
+        align-items: flex-start !important;
+        padding: 0 0 30px;
+        gap: 25px;
+    }
+
+    .checkout-caja-titulo h2 {
+        font-size: clamp(36px, 8vw, 60px);
+        letter-spacing: -1.5px;
+        white-space: normal;
+    }
+
+    .checkout-caja-titulo > div {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .checkout-caja-titulo button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    .checkout-grid {
+        grid-template-columns: minmax(0, 1fr);
+        justify-items: center;
+    }
+
+    .checkout-grid > .checkout-entrada,
+    .checkout-grid > .pedido {
+        width: 100%;
+        max-width: 640px;
+        margin-inline: auto;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE (celular)
+   ========================================================= */
+@media (max-width: 600px) {
+    .checkout-contenedor {
+        padding: 30px 16px;
+    }
+
+    .checkout-entrada {
+        padding: 24px 18px;
+        border-radius: 24px;
+    }
+
+    .checkout-entrada h3 {
+        font-size: 20px;
+    }
+
+    .checkout-tipo-entrada {
+        padding: 14px;
+        min-height: 68px;
+        gap: 10px;
+        border-radius: 16px;
+    }
+
+    .checkout-tipo-entrada h4 {
+        font-size: 16px;
+    }
+
+    .checkout-tipo-entrada span p {
+        font-size: 12px;
+    }
+
+    .checkout-tipo-entrada > p {
+        font-size: 18px;
+    }
+
+    .checkout-contador {
+        gap: 10px;
+    }
+
+    .checkout-contador button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .checkout-cantidad-entradas {
+        font-size: 20px;
+        width: 25px;
+    }
+
+    .checkout-continuar {
+        min-height: 50px;
+        font-size: 16px;
+    }
+
+    .checkout-aclaracion {
+        font-size: 12px;
+    }
+
+    .pedido {
+        padding: 24px 20px;
+    }
+
+    .pedido__total p {
+        font-size: 28px;
+    }
+
+/* fin css de entradas  */
 
 
 /* comienzo css de speakers */
