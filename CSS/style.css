@@ -261,7 +261,7 @@
 }
 
 .hero-description {
-  font-size: 20px;
+  font-size: 1.156rem;
   line-height: 1.5;
   color: var(--texto);
   max-width: 520px;
