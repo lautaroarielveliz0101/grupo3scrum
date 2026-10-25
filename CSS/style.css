@@ -1781,8 +1781,12 @@
   align-items: center;
   gap: 32px;
   padding: 36px;
-    background: linear-gradient(160deg, var(--rojo-profundo)hsl(352, 40%, 8%), var(--negro) 45%, var(--negro) -100%);
-
+background: linear-gradient(
+    160deg, 
+    var(--negro)-25%,             
+    var(--rojo-profundo) -60%,    
+    hsl(351, 63%, 6%) 5%        
+  );
   border: 1px solid rgba(224, 32, 42, 0.25);
   border-radius: 28px;
 }
