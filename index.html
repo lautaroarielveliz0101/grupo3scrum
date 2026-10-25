@@ -22,28 +22,52 @@
 <body class="body">
     <!--Header RC-01-->
      <header>
-        <nav class="navbar">
-  <div class="container d-flex justify-content-between align-items-center">
-    <a href="#" class="navbar-logo" aria-label="Rolling Code School">
-      <img
-        src="assets/header icons/logo-rolling-blanco.png"
-        alt="Rolling Code School"
-      >
-    </a>
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
 
-    <div class="navbar-links">
-      <a href="#speakers">Speakers</a>
-      <a href="#agenda">Agenda</a>
-      <a href="#ubicacion">Cómo llegar</a>
-    </div>
+            <!-- Logo -->
+            <a href="#" class="navbar-logo" aria-label="Rolling Code School">
+                <img
+                    src="assets/header icons/logo-rolling-blanco.png"
+                    alt="Rolling Code School"
+                >
+            </a>
 
-    <a href="#entradas" class="btn-entrada">
-      Comprar entrada
-    </a>
-  </div>
-</nav>
-    </header>
+            <!-- Control del menú hamburguesa -->
+            <input
+                type="checkbox"
+                id="menu-toggle"
+                class="menu-checkbox"
+            >
 
+            <!-- Icono hamburguesa: solo aparece en celulares -->
+            <label
+                for="menu-toggle"
+                class="menu-hamburguesa"
+                aria-label="Abrir o cerrar menú"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Enlaces y botón -->
+            <div class="navbar-menu">
+                <div class="navbar-links">
+                    <a href="#speakers">Speakers</a>
+                    <a href="#agenda">Agenda</a>
+                    <a href="#ubicacion">Cómo llegar</a>
+                </div>
+
+                <a href="#entradas" class="btn-entrada">
+                    Comprar entrada
+                </a>
+            </div>
+
+        </div>
+    </nav>
+</header>
+ <!-- FIN RC-01 -->
     <!-- Inicio RC-04 -->
     <main class="main-container">
 
