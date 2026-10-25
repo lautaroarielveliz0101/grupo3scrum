@@ -104,12 +104,6 @@
 
 /* Columna derecha */
 
-.agenda-lista {
-    min-width: 0;
-    position: relative;
-    left: 20px;
-}
-
 .agenda-item {
     display: flex;
     align-items: flex-start;
@@ -634,7 +628,7 @@
     .pedido__total p {
         font-size: 28px;
     }
-
+}
 /* fin css de entradas  */
 
 
