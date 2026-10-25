@@ -397,7 +397,53 @@ body {
 }
 
 
-/* fin css de agenda */
+
+.main-footer {
+  border-top: 1px solid #2c2c31;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #0b0b0c;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+.footer-logo {
+  height: 40px;
+  width: auto;
+}
+
+.footer-socials{
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #111113;
+  border: 1px solid #2c2c31;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.social-icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.social-icon-btn:hover {
+  background-color: #e0202a;
+  border-color: #e0202a;
+  transform: translateY(-2px);
+}
 /* css de entradas */
 
 /* =========================================================
