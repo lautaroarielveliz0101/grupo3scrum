@@ -6,11 +6,11 @@
     --superficie: #111113;
     --chip: #26262a;
     --borde: #2c2c31;
-    --texto: #d4d4d8;
+    --texto: #fff;
     --texto-suave: #a1a1aa;
 }
 
-.body{
+.body {
     background-color: var(--negro);
     font-family: "Plus Jakarta Sans", sans-serif;
     font-optical-sizing: auto;
@@ -61,6 +61,7 @@
     line-height: 1.4;
     color: var(--texto);
 }
+
 /* fin css de datos claves */
 /* css de agenda */
 
@@ -70,9 +71,6 @@
     color: var(--texto);
 }
 
-#agenda .container {
-    max-width: 1200px;
-}
 
 /* Columna izquierda */
 
@@ -97,7 +95,7 @@
     line-height: 1.15;
 }
 
-.agenda-intro > p {
+.agenda-intro>p {
     margin: 0;
     color: var(--texto-suave);
     font-size: 17px;
@@ -199,6 +197,7 @@
         font-size: 14px;
     }
 }
+
 /* fin css de agenda */
 
 
@@ -216,15 +215,15 @@
     font-weight: 800;
     letter-spacing: 3px;
     margin-bottom: 12px;
-     margin-left: -15px;
+    margin-left: -15px;
 }
 
-#speakers > h1 {
+#speakers>h1 {
     font-size: 45px;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 28px;
-     margin-left: -15px;
+    margin-left: -15px;
     padding-right: 20px;
 }
 
@@ -245,7 +244,7 @@
 }
 
 .speaker-card img {
-   display: block;
+    display: block;
     width: 190px;
     height: 190px;
     object-fit: cover;
@@ -285,6 +284,7 @@
     font-size: 14px;
     line-height: 1.5;
 }
+
 /* Pantallas medianas */
 @media (max-width: 1200px) {
     #speakers {
@@ -292,7 +292,7 @@
         padding-right: 20px;
     }
 
-    #speakers > h1 {
+    #speakers>h1 {
         font-size: 44px;
     }
 }
@@ -306,7 +306,7 @@
         overflow: hidden;
     }
 
-    #speakers > h1 {
+    #speakers>h1 {
         font-size: 32px;
         margin-right: 16px;
     }
@@ -344,3 +344,261 @@
 }
 
 /* fin css de speakers */
+
+/* css de ubicación */
+
+#ubicacion {
+    padding: 80px 0;
+    background: transparent;
+    /* usa el fondo de la página */
+    color: var(--texto);
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* Etiqueta roja */
+#ubicacion .ub-etiqueta {
+    margin: 0 0 20px;
+    color: var(--rojo);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* Título */
+#ubicacion .ub-titulo {
+    margin: 0 0 32px;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    /* hasta 56 px */
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+}
+
+/* Dirección */
+#ubicacion .ub-direccion {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+#ubicacion .ub-direccion-icono {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    margin-top: 3px;
+    color: var(--rojo);
+}
+
+#ubicacion .ub-direccion-linea1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+#ubicacion .ub-direccion-linea2 {
+    margin: 2px 0 0;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--texto-suave);
+}
+
+/* Chips */
+#ubicacion .ub-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 0 32px;
+    padding: 0;
+    list-style: none;
+}
+
+#ubicacion .ub-chip {
+    padding: 8px 16px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.2;
+    background: transparent;
+    border: 1px solid var(--borde);
+    border-radius: 999px;
+}
+
+/* Botones */
+#ubicacion .ub-botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+#ubicacion .ub-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-decoration: none;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+#ubicacion .ub-btn:focus-visible {
+    outline: 3px solid var(--texto);
+    outline-offset: 3px;
+}
+
+#ubicacion .ub-btn-rojo {
+    background: var(--rojo);
+    border-color: var(--rojo);
+    color: var(--texto);
+}
+
+#ubicacion .ub-btn-rojo:hover {
+    background: var(--rojo-oscuro);
+    border-color: var(--rojo-oscuro);
+    color: var(--texto);
+}
+
+#ubicacion .ub-btn-borde {
+    background: transparent;
+    border-color: var(--texto);
+    color: var(--texto);
+}
+
+#ubicacion .ub-btn-borde:hover {
+    background: var(--texto);
+    color: var(--negro);
+}
+
+/* Panel del mapa */
+#ubicacion .ub-mapa {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 28px;
+}
+
+/* Panel de respaldo (cuadrícula + calles + pin) */
+#ubicacion .ub-mapa-respaldo {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--borde) 1px, transparent 1px),
+        linear-gradient(90deg, var(--borde) 1px, transparent 1px);
+    background-size: 56px 56px;
+}
+
+#ubicacion .ub-calle-h,
+#ubicacion .ub-calle-v {
+    position: absolute;
+    background: var(--chip);
+}
+
+#ubicacion .ub-calle-h {
+    left: 0;
+    right: 0;
+    top: 48%;
+    height: 40px;
+}
+
+#ubicacion .ub-calle-v {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 40px;
+    transform: translateX(-50%);
+}
+
+#ubicacion .ub-pin {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    margin: 20px 0 0 -40px;
+    transform: translateY(-50%);
+    display: grid;
+    place-items: center;
+    color: var(--rojo);
+    background: var(--rojo-profundo);
+    border-radius: 50%;
+}
+
+#ubicacion .ub-pin svg {
+    width: 36px;
+    height: 36px;
+}
+
+/* Iframe de Bing Maps: aparece solo cuando carga */
+#ubicacion .ub-mapa iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+#ubicacion .ub-mapa iframe.ub-cargado {
+    opacity: 1;
+}
+
+/* Tarjeta inferior con nombre y coordenadas */
+#ubicacion .ub-mapa-info {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px 16px;
+    padding: 14px 20px;
+    background: var(--superficie);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    pointer-events: none;
+}
+
+#ubicacion .ub-mapa-nombre {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+#ubicacion .ub-mapa-calle {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: var(--texto-suave);
+}
+
+#ubicacion .ub-mapa-coord {
+    margin: 0;
+    font-size: 13px;
+    color: var(--texto-suave);
+}
+
+@media (max-width: 575.98px) {
+    #ubicacion {
+        padding: 56px 0;
+    }
+
+    #ubicacion .ub-mapa {
+        height: 360px;
+    }
+
+    #ubicacion .ub-btn {
+        width: 100%;
+    }
+}
+
+/* fin css ubicación */
