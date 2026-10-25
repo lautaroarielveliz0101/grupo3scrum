@@ -1755,3 +1755,146 @@
   }
 }
 /*fin del baner*/
+
+
+/*inicio de contador*/
+
+#entradas .eyebrow {
+  color: var(--rojo);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+#entradas h2 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 32px;
+  color: var(--texto);
+}
+
+.banner-early {
+  display: grid;
+  grid-template-columns: 1.1fr auto 1fr;
+  align-items: center;
+  gap: 32px;
+  padding: 36px;
+    background: linear-gradient(160deg, var(--rojo-profundo)hsl(352, 40%, 8%), var(--negro) 45%, var(--negro) -100%);
+
+  border: 1px solid rgba(224, 32, 42, 0.25);
+  border-radius: 28px;
+}
+
+.early-tag {
+  color: var(--rojo);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.early-info h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 6px 0 8px;
+  color: var(--texto);
+}
+
+.early-info p {
+  color: #a1a1a6;
+  margin: 0;
+}
+
+/* Contador */
+.contador {
+  display: flex;
+  gap: 12px;
+}
+
+.caja {
+  background: #0b0b0c;
+  border: 1px solid #26262a;
+  border-radius: 16px;
+  min-width: 100px;
+  padding: 14px 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--texto);
+}
+
+.numero {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.etiqueta {
+  font-size: 14px;
+  color:var(--texto-suave);
+}
+
+/* Barra de cupos */
+.cupos-texto {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: var(--texto);
+}
+
+.cupos-texto span {
+  color:var(--texto);
+}
+
+.barra {
+  height: 10px;
+  background: #26262a;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barra-relleno {
+  width: 63%; /* valor inicial; JS lo actualiza */
+  height: 100%;
+  background: var(--rojo);
+  border-radius: 999px;
+  transition: width 0.8s ease;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .banner-early {
+    grid-template-columns: 1fr;
+    padding: 28px;
+  }
+  .contador {
+    justify-content: flex-start;
+  }
+}
+
+/* Celular */
+@media (max-width: 576px) {
+  .banner-early {
+    padding: 22px;
+    border-radius: 22px;
+  }
+  .contador {
+    gap: 8px;
+  }
+  .caja {
+    flex: 1;
+    min-width: 0;
+  }
+  .numero {
+    font-size: 32px;
+  }
+  .etiqueta {
+    font-size: 12px;
+  }
+}
+/*fin de contador*/
