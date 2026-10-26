@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>¿Por dónde empiezo a programar? | Rolling Code School</title>
     <link rel="stylesheet" href="./CSS/style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"   />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
@@ -342,13 +342,51 @@
                         </div>
                     </article>
 
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section id="entradas">
+        <div class="container">
+            <p class="eyebrow">ENTRADAS</p>
+            <h2>Asegurá tu lugar antes de que suba el precio</h2>
+
+            <div class="banner-early">
+                <div class="early-info">
+                    <span class="early-tag">EARLY BIRD</span>
+                    <h3>El precio especial termina el 31/10</h3>
+                    <p>Después la entrada pasa de $25.000 a $35.000.</p>
+                </div>
+
+                <div class="contador" aria-label="Tiempo restante">
+                    <div class="caja">
+                        <span class="numero" id="dias">00</span>
+                        <span class="etiqueta">DÍAS</span>
+                    </div>
+                    <div class="caja">
+                        <span class="numero" id="horas">00</span>
+                        <span class="etiqueta">HORAS</span>
+                    </div>
+                    <div class="caja">
+                        <span class="numero" id="min">00</span>
+                        <span class="etiqueta">MIN</span>
+                    </div>
+                </div>
+
+                <div class="cupos">
+                    <div class="cupos-texto">
+                        <strong id="cupos-quedan">Quedan 38 de 60 Early Bird</strong>
+                        <span id="cupos-porcentaje">63% vendidas</span>
+                    </div>
+                    <div class="barra" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="63">
+                        <div class="barra-relleno" id="barra-relleno"></div>
+                    </div>
                 </div>
             </div>
         </div>
+        <br><br><br><br><br><br>
     </section>
 
-    <!-- Contador RC-07 -->
-    <section></section>
 
     <!-- Precios RC-08 -->
     <section></section>
@@ -531,6 +569,7 @@
 integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
 crossorigin="anonymous"></script>
 <script src="./ts/checkout.js"></script>
+        <script src="./js/app.js"></script>
 </body>
 
 </html>
