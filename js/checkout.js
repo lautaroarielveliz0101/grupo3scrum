@@ -80,8 +80,56 @@ tipos.forEach((tipo) => {
 btnMenos.addEventListener('click', () => cambiarCantidad(-1));
 btnMas.addEventListener('click', () => cambiarCantidad(1));
 
-// Por ahora "Continuar" no envía el formulario (no recarga la página)
-form.addEventListener('submit', (e) => e.preventDefault());
+// =========================================================
+// ERROR DE PAGO
+// =========================================================
+const pagoError = document.getElementById('pago-error');
+const pagoErrorTitulo = document.getElementById('pago-error-titulo');
+
+// TEMPORAL: mientras no exista la pasarela real, el pago siempre falla.
+// Poné en false para que "Continuar" no muestre el error. Sacalo antes del PR.
+const SIMULAR_ERROR_PAGO = true;
+
+// Oculta el paso actual y muestra el bloque de error
+function mostrarErrorPago() {
+    document.querySelectorAll('.checkout-paso').forEach((paso) => {
+        paso.hidden = true;
+    });
+    pagoError.hidden = false;
+    pagoErrorTitulo.focus();
+}
+
+// Cambio de paso (PLACEHOLDER: reemplazalo por la función de RC-14 / RC-15).
+// Como solo ocultamos/mostramos, los datos cargados se conservan.
+function irAPaso(numero) {
+    pagoError.hidden = true;
+
+    document.querySelectorAll('.checkout-paso').forEach((paso) => {
+        paso.hidden = true;
+    });
+
+    // Si el paso pedido todavía no existe (ej. el 3), cae al paso 1
+    const destino = document.getElementById(`paso-${numero}`) || document.getElementById('paso-1');
+    destino.hidden = false;
+}
+
+// Intento de pago
+function procesarPago() {
+    if (SIMULAR_ERROR_PAGO) {
+        mostrarErrorPago();
+        return;
+    }
+    // Acá va el flujo normal cuando exista la pasarela
+}
+
+document.getElementById('btn-reintentar').addEventListener('click', () => irAPaso(3));
+document.getElementById('btn-volver-compra').addEventListener('click', () => irAPaso(1));
+
+// "Continuar" intenta el pago (no recarga la página)
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    procesarPago();
+});
 
 // Estado inicial
 seleccionarTipo(document.querySelector('.checkout-tipo-entrada.activa') || tipos[0]);
