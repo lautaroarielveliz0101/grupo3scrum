@@ -1611,7 +1611,7 @@ body {
 
 /* ===== HERO (RC-01) ===== */
 .hero-card {
-  background: linear-gradient(160deg, var(--rojo) 0%, var(--rojo-oscuro) 55%, var(--rojo-profundo) 100%);
+  background: linear-gradient(145deg, #e51b2b, #76060d);
   border-radius: 40px;
   padding: 48px;
 }
@@ -1709,13 +1709,13 @@ body {
 .btn-hero-outline {
   background-color: transparent;
   color: var(--blanco);
-  border: 2px solid var(--blanco);
+  border: 2px solid var(--texto);
   padding: 10px 28px;
 }
 
 .btn-hero-outline:hover {
   background-color: var(--negro);
-  color: var(--blanco);
+  color: var(--texto);
   border-color: var(--negro);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
@@ -1908,12 +1908,7 @@ body {
   align-items: center;
   gap: 32px;
   padding: 36px;
-background: linear-gradient(
-    160deg, 
-    var(--negro)-25%,             
-    var(--rojo-profundo) -60%,    
-    hsl(351, 63%, 6%) 5%        
-  );
+ background: linear-gradient(145deg, #2d090c, #200506);
   border: 1px solid rgba(224, 32, 42, 0.25);
   border-radius: 28px;
 }
