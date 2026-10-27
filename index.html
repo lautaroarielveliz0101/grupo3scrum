@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="./CSS/style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="./CSS/precios.css">
-
+     <link rel="stylesheet" href="./CSS/sponsorts.css">
+    <link rel="stylesheet" href="./CSS/precios.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
@@ -21,8 +22,53 @@
 
 <body class="body">
     <!--Header RC-01-->
-    <nav></nav>
+     <header>
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
 
+            <!-- Logo -->
+            <a href="#" class="navbar-logo" aria-label="Rolling Code School">
+                <img
+                    src="assets/header icons/logo-rolling-blanco.png"
+                    alt="Rolling Code School"
+                >
+            </a>
+
+            <!-- Control del menú hamburguesa -->
+            <input
+                type="checkbox"
+                id="menu-toggle"
+                class="menu-checkbox"
+            >
+
+            <!-- Icono hamburguesa: solo aparece en celulares -->
+            <label
+                for="menu-toggle"
+                class="menu-hamburguesa"
+                aria-label="Abrir o cerrar menú"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Enlaces y botón -->
+            <div class="navbar-menu">
+                <div class="navbar-links">
+                    <a href="#speakers">Speakers</a>
+                    <a href="#agenda">Agenda</a>
+                    <a href="#ubicacion">Cómo llegar</a>
+                </div>
+
+                <a href="#entradas" class="btn-entrada">
+                    Comprar entrada
+                </a>
+            </div>
+
+        </div>
+    </nav>
+</header>
+ <!-- FIN RC-01 -->
     <!-- Inicio RC-04 -->
     <main class="main-container">
 
@@ -130,7 +176,7 @@
         <section class="speaker-list">
 
             <article class="speaker-card">
-                <img src="assets/speakers/tomas escudero.png" alt="Tomas Escudero">
+                <img src="assets/speakers/tomas escudero.jpg" alt="Tomas Escudero">
                 <div class="speaker-info">
                     <h2>Tomas Escudero</h2>
                     <h3 class="topic-red"><a href="pages/pagina404.html">Diseño para developers</a></h3>
@@ -140,7 +186,7 @@
             </article>
 
             <article class="speaker-card">
-                <img src="assets/speakers/speaker2.jpg.jpeg" alt="Franco Diaz">
+                <img src="assets/speakers/franco.jpg" alt="Franco Diaz">
                 <div class="speaker-info">
                     <h2>Franco Diaz</h2>
                     <h3>De cero a tu primer proyecto</h3>
@@ -150,9 +196,9 @@
             </article>
 
             <article class="speaker-card">
-                <img src="assets/speakers/speaker6.jpg.jpeg" alt="Gaston">
+                <img src="assets/speakers/gaston.jpg" alt="Gaston">
                 <div class="speaker-info">
-                    <h2>Gaston</h2>
+                    <h2>Gaston Roger</h2>
                     <h3>Armá tu portfolio con IA</h3>
                     <p>Cómo usar asistentes de IA para construir y publicar un portfolio que muestre lo que sabés hacer.
                     </p>
@@ -160,9 +206,9 @@
             </article>
 
             <article class="speaker-card">
-                <img src="assets/speakers/speaker5.jpg.jpeg" alt="Mauro">
+                <img src="assets/speakers/mauro.jpeg" alt="Mauro">
                 <div class="speaker-info">
-                    <h2>Mauro</h2>
+                    <h2>Mauro Coniglio</h2>
                     <h3>Git y GitHub sin miedo</h3>
                     <p>Los comandos que vas a usar todos los días y cómo trabajar en equipo sin pisar el código de
                         otros.</p>
@@ -170,7 +216,7 @@
             </article>
 
             <article class="speaker-card">
-                <img src="assets/speakers/speaker3.jpg.jpeg" alt="Jose Diaz">
+                <img src="assets/speakers/jose.jpg" alt="Jose Diaz">
                 <div class="speaker-info">
                     <h2>Jose Diaz</h2>
                     <h3>Tu primer backend con Node</h3>
@@ -179,7 +225,7 @@
             </article>
 
             <article class="speaker-card">
-                <img src="assets/speakers/a3e06702-1124-439e-8ecf-08236b37b640.jpg" alt="Tomas Gomez">
+                <img src="assets/speakers/tomas gomez.jpg" alt="Tomas Gomez">
                 <div class="speaker-info">
                     <h2>Tomas Gomez</h2>
                     <h3>Preparate para tu primera entrevista</h3>
@@ -189,7 +235,7 @@
             </article>
 
             <article class="speaker-card">
-                <img src="assets/speakers/pablo basso.png" alt="Pablo Basso">
+                <img src="assets/speakers/pablo basso.jpg" alt="Pablo Basso">
                 <div class="speaker-info">
                     <h2>Pablo Basso</h2>
                     <h3>Mi primer trabajo en IT</h3>
@@ -199,7 +245,7 @@
             </article>
 
             <article class="speaker-card">
-                <img src="assets/speakers/julial martin.png" alt="Julian Martin">
+                <img src="assets/speakers/julian.jpg" alt="Julian Martin">
                 <div class="speaker-info">
                     <h2>Julian Martin</h2>
                     <h3>Testing: cómo no romper todo</h3>
@@ -208,7 +254,7 @@
             </article>
 
             <article class="speaker-card">
-                <img src="assets/speakers/speaker1.jpg.jpeg" alt="Daniela Cardozo">
+                <img src="assets/speakers/daniela cardozo.jpg" alt="Daniela Cardozo">
                 <div class="speaker-info">
                     <h2>Daniela Cardozo</h2>
                     <h3>Tu primer día como developer</h3>
@@ -218,7 +264,7 @@
             </article>
 
             <article class="speaker-card">
-                <img src="assets/speakers/andres perlo.png" alt="Andres Perlo">
+                <img src="assets/speakers/andres perlo.jpg" alt="Andres Perlo">
                 <div class="speaker-info">
                     <h2>Andres Perlo</h2>
                     <h3>Tu primera base de datos</h3>
@@ -603,7 +649,268 @@
             </article>
         </div>
     </div>
+    <br>
+
+
 </section>
+
+<h1> los sponsorts principales del evento son:</h1>
+
+<!--ubicacion de RC-14-->
+<!-- NIVEL DIAMANTE -->
+    <section class="tier tier-diamond" aria-labelledby="diamond-title">
+
+      <header class="tier-header">
+        <div class="tier-icon diamond-icon" aria-hidden="true">♕</div>
+
+        <div class="tier-heading">
+          <div class="tier-title-row">
+            <h2 id="diamond-title">MAIN PARTNERS</h2>
+            <span class="tier-badge red-badge">TIER DIAMANTE</span>
+          </div>
+
+          <p>
+            Presencia estelar en conferencias, stands experienciales
+            y becas formativas
+          </p>
+        </div>
+      </header>
+
+      <div class="diamond-grid">
+
+        <article class="partner-card diamond-card google-card">
+          <div class="card-top">
+            <span class="partner-tag red-tag">LEAD CLOUD PARTNER</span>
+            <a class="external-link" href="https://cloud.google.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Visitar Google Cloud">↗</a>
+          </div>
+
+          <div class="partner-logo">
+            <img src="./assets/iconos sponssortss/WhatsApp Image 2026-10-27 at 7.33.54 AM.png" alt="Google Cloud">
+          </div>
+
+          <h3>Google Cloud</h3>
+
+          <p class="partner-description">
+            Infraestructura global ultra-escalable, Gemini AI APIs
+            y programas de formación profesional para devs.
+          </p>
+
+          <div class="card-footer">
+            <span class="partner-category">
+              <span class="mini-icon red-text">⚙</span>
+              Cloud &amp; AI
+            </span>
+            <span class="partner-status red-text">100% Verified</span>
+          </div>
+        </article>
+
+        <article class="partner-card diamond-card aws-card">
+          <div class="card-top">
+            <span class="partner-tag orange-tag">INFRASTRUCTURE PARTNER</span>
+            <a class="external-link" href="https://aws.amazon.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Visitar Amazon Web Services">↗</a>
+          </div>
+
+          <div class="partner-logo">
+            <img src="/assets/iconos sponssortss/aws con fondo.png" alt="Amazon Web Services">
+          </div>
+
+          <h3>Amazon Web Services</h3>
+
+          <p class="partner-description">
+            Servicios de nube, arquitecturas serverless y vouchers
+            para certificaciones oficiales para la comunidad.
+          </p>
+
+          <div class="card-footer">
+            <span class="partner-category">
+              <span class="mini-icon orange-text">▤</span>
+              Cloud Hosting
+            </span>
+            <span class="partner-status orange-text">Global Leader</span>
+          </div>
+        </article>
+
+        <article class="partner-card diamond-card mercado-card">
+          <div class="card-top">
+            <span class="partner-tag yellow-tag">FINTECH &amp; E-COMMERCE</span>
+            <a class="external-link" href="https://www.mercadolibre.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Visitar Mercado Libre">↗</a>
+          </div>
+
+          <div class="partner-logo">
+            <img src="/assets/iconos sponssortss/mercado libre con fondo.png" alt="Mercado Libre">
+          </div>
+
+          <h3>Mercado Libre</h3>
+
+          <p class="partner-description">
+            El mayor ecosistema tech de Latinoamérica impulsando
+            becas, hackathons y pasantías directas de empleo.
+          </p>
+
+          <div class="card-footer">
+            <span class="partner-category">
+              <span class="mini-icon yellow-text">▤</span>
+              Fintech Scale
+            </span>
+            <span class="partner-status yellow-text">Unicorn LATAM</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- NIVEL ORO -->
+    <section class="tier tier-gold" aria-labelledby="gold-title">
+
+      <header class="tier-header">
+        <div class="tier-icon gold-icon" aria-hidden="true">♙</div>
+
+        <div class="tier-heading">
+          <div class="tier-title-row">
+            <h2 id="gold-title">GOLD TIER</h2>
+            <span class="tier-badge gold-badge">NIVEL ORO</span>
+          </div>
+
+          <p>
+            Líderes de producto, frameworks y transformación digital global
+          </p>
+        </div>
+      </header>
+
+      <div class="gold-grid">
+
+        <article class="partner-card gold-card">
+          <div class="small-logo">
+            <img src="/assets/iconos sponssortss/A con fondo.png" alt="Microsoft">
+          </div>
+          <h3>Microsoft</h3>
+          <p>Azure &amp; Dev Tools</p>
+          <span class="small-tag">Enterprise</span>
+        </article>
+
+        <article class="partner-card gold-card">
+          <div class="small-logo">
+            <img src="/assets/iconos sponssortss/git hub con fondo.png" alt="GitHub">
+          </div>
+          <h3>GitHub</h3>
+          <p>Open Source &amp; Copilot</p>
+          <span class="small-tag">Community</span>
+        </article>
+
+        <article class="partner-card gold-card">
+          <div class="small-logo">
+            <img src="/assets/iconos sponssortss/G con fondo.png" alt="Globant">
+          </div>
+          <h3>Globant <span class="globant-dot">•</span></h3>
+          <p>Tech Reinvention</p>
+          <span class="small-tag">Global Talent</span>
+        </article>
+
+        <article class="partner-card gold-card">
+          <div class="small-logo">
+            <img src="/assets/iconos sponssortss/escudo con fondo.png" alt="Auth0">
+          </div>
+          <h3>Auth0</h3>
+          <p>Identity &amp; Security</p>
+          <span class="small-tag">Security</span>
+        </article>
+
+        <article class="partner-card gold-card">
+          <div class="small-logo">
+            <img src="/assets/iconos sponssortss/triangulo con fondo.png" alt="Vercel">
+          </div>
+          <h3>Vercel</h3>
+          <p>Frontend Cloud &amp; Next</p>
+          <span class="small-tag">Deployment</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- NIVEL BRONCE -->
+    <section class="tier tier-bronze" aria-labelledby="bronze-title">
+
+      <header class="tier-header">
+        <div class="tier-icon bronze-icon" aria-hidden="true">▱</div>
+
+        <div class="tier-heading">
+          <div class="tier-title-row">
+            <h2 id="bronze-title">BRONZE TIER</h2>
+            <span class="tier-badge bronze-badge">NIVEL BRONCE</span>
+          </div>
+
+          <p>
+            Herramientas y plataformas predilectas de la comunidad de desarrolladores
+          </p>
+        </div>
+      </header>
+
+      <div class="bronze-grid">
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo supabase-logo">
+            <img src="/assets/iconos sponssortss/logo tipo verde sin fondo.png" alt="Supabase">
+          </div>
+          <h3>Supabase</h3>
+          <p>Open-source DB</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo digitalocean-logo">
+            <img src="/assets/iconos sponssortss/hoja sin fondo.png" alt="DigitalOcean">
+          </div>
+          <h3>DigitalOcean</h3>
+          <p>Cloud VPS</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo cloudflare-logo">
+            <img src="/assets/iconos sponssortss/nube con fondo.png" alt="Cloudflare">
+          </div>
+          <h3>Cloudflare</h3>
+          <p>Edge &amp; DNS</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo mongodb-logo">
+            <img src="/assets/iconos sponssortss/hoja sin fondo.png" alt="MongoDB">
+          </div>
+          <h3>MongoDB</h3>
+          <p>Document DB</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo docker-logo">
+            <img src="/assets/iconos sponssortss/ballena sin fondo.png" alt="Docker">
+          </div>
+          <h3>Docker</h3>
+          <p>Containers</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo stripe-logo">
+            <img src="/assets/iconos sponssortss/astronauta con fondo.png" alt="Stripe">
+          </div>
+          <h3>Stripe</h3>
+          <p>Payments API</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo postman-logo">
+            <img src="/assets/iconos sponssortss/logotipo raro.png" alt="Postman">
+          </div>
+          <h3>Postman</h3>
+          <p>API Platform</p>
+        </article>
+
+      </div>
+    </section>
 
 <!-- Ubicación RC-10 -->
 <section id="ubicacion">
@@ -729,6 +1036,7 @@
 <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
         crossorigin="anonymous"></script>
+        <script src="./js/app.js"></script>
 </body>
 
 </html>
