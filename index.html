@@ -15,7 +15,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+<link rel="shortcut icon" href="/assets/header icons/WhatsApp Image 2026-10-27 at 1.55.24 PM.jpeg" type="image/x-icon">    
+<link rel="stylesheet" href="/CSS/sponsotrssub.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -92,8 +94,8 @@
                         aprender, cómo practicar y cómo mostrar lo que sabés.
                     </p>
                     <div class="hero-buttons">
-                        <a href="#" class="btn-hero-dark">Comprar entrada</a>
-                        <a href="#" class="btn-hero-dark">Ver agenda</a>
+                        <a href="#entradas" class="btn-hero-dark">Comprar entrada</a>
+                        <a href="#agenda" class="btn-hero-dark">Ver agenda</a>
                     </div>
                 </div>
 
@@ -128,9 +130,9 @@
                     </div>
 
                     <div class="chips-container">
-                        <button class="chip-item">Presencial</button>
-                        <button class="chip-item">Virtual</button>
-                        <button class="chip-item">Cupos limitados</button>
+                        <a href="/pages/pagina404.html"><button class="chip-item" href="/pages/pagina404.html">Presencial</button></a>
+                        <a href="/pages/pagina404.html"><button class="chip-item" href="/pages/pagina404.html">Virtual</button></a>
+                        <a href="/pages/pagina404.html"><button class="chip-item" >Cupos limitados</button></a>
                     </div>
                 </div>
 
@@ -167,6 +169,8 @@
         </div>
     </section>
     </section>
+
+    
     <!-- Speakers RC-05 -->
 
     <section id="speakers">
@@ -434,7 +438,6 @@
                 </div>
             </div>
         </div>
-        <br><br><br><br><br><br>
     </section>
 
 
@@ -911,6 +914,137 @@
 
       </div>
     </section>
+
+    
+<!-- Ubicación RC-15 -->
+
+<section id="sumate-sponsor" class="sponsor" aria-labelledby="sponsor-titulo">
+
+            <div class="sponsor__container">
+
+                <header class="sponsor__intro">
+                    <h2 id="sponsor-titulo" class="sponsor__title">Sumate como Sponsor</h2>
+                    <p class="sponsor__text">
+                        Conectá tu marca con más de 120 talentos IT, programadores junior, semi-seniors y líderes
+                        tecnológicos del norte argentino. Completá el formulario y nos contactaremos en menos de 24
+                        horas hábiles.
+                    </p>
+                </header>
+
+
+                <div class="sponsor-card">
+
+                    <form id="sponsor-form" class="sponsor-form" novalidate>
+                        <div class="sponsor-grid">
+
+                            <div class="sponsor-field">
+                                <label for="sp-nombre">Nombre <span class="req" aria-hidden="true">*</span></label>
+                                <input type="text" id="sp-nombre" name="nombre" placeholder="Ej. Martín"
+                                    autocomplete="given-name" required aria-describedby="sp-nombre-error">
+                                <p class="sponsor-error" id="sp-nombre-error" role="alert"></p>
+                            </div>
+
+                            <div class="sponsor-field">
+                                <label for="sp-apellido">Apellido <span class="req" aria-hidden="true">*</span></label>
+                                <input type="text" id="sp-apellido" name="apellido" placeholder="Ej. González"
+                                    autocomplete="family-name" required aria-describedby="sp-apellido-error">
+                                <p class="sponsor-error" id="sp-apellido-error" role="alert"></p>
+                            </div>
+
+                            <div class="sponsor-field">
+                                <label for="sp-empresa">Empresa <span class="req" aria-hidden="true">*</span></label>
+                                <input type="text" id="sp-empresa" name="empresa" placeholder="Ej. Acme Technologies"
+                                    autocomplete="organization" required aria-describedby="sp-empresa-error">
+                                <p class="sponsor-error" id="sp-empresa-error" role="alert"></p>
+                            </div>
+
+                            <div class="sponsor-field">
+                                <label for="sp-email">Email corporativo <span class="req"
+                                        aria-hidden="true">*</span></label>
+                                <input type="email" id="sp-email" name="email" placeholder="martin@acme.com"
+                                    autocomplete="email" required aria-describedby="sp-email-error">
+                                <p class="sponsor-error" id="sp-email-error" role="alert"></p>
+                            </div>
+
+                        </div>
+
+                        <div class="sponsor-field">
+                            <label for="sp-tipo">Tipo de sponsor <span class="req" aria-hidden="true">*</span></label>
+                            <div class="sponsor-select">
+                                <select id="sp-tipo" name="tipo" required aria-describedby="sp-tipo-error">
+                                    <option value="" selected>Seleccioná un nivel de sponsoreo</option>
+                                    <option value="platino">Platino</option>
+                                    <option value="oro">Oro</option>
+                                    <option value="plata">Plata</option>
+                                    <option value="colaborador">Colaborador</option>
+                                </select>
+                                <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                            </div>
+                            <p class="sponsor-error" id="sp-tipo-error" role="alert"></p>
+                        </div>
+
+                        <div class="sponsor-field">
+                            <span class="sponsor-label" id="sp-logo-label">Logo de la empresa</span>
+
+                            <div class="sponsor-drop" id="sp-drop" aria-describedby="sp-logo-error">
+                                <input type="file" id="sp-logo" name="logo"
+                                    accept=".png,.svg,.jpg,.jpeg,.webp,image/png,image/svg+xml,image/jpeg,image/webp"
+                                    class="sponsor-sr-only" aria-labelledby="sp-logo-label sp-drop-title">
+
+                                <label for="sp-logo" class="sponsor-drop__empty" id="sp-drop-empty">
+                                    <span class="sponsor-drop__icon"><i class="bi bi-cloud-arrow-up"
+                                            aria-hidden="true"></i></span>
+                                    <span class="sponsor-drop__title" id="sp-drop-title">Hacé clic para adjuntar tu logo
+                                        o arrastralo aquí</span>
+                                    <span class="sponsor-drop__hint">Archivos aceptados: PNG, SVG, JPG o WEBP (fondo
+                                        transparente recomendado, máx. 5MB)</span>
+                                </label>
+
+                                <div class="sponsor-preview" id="sp-preview" hidden>
+                                    <div class="sponsor-preview__thumb"><img id="sp-preview-img"
+                                            alt="Vista previa del logo seleccionado"></div>
+                                    <div class="sponsor-preview__info">
+                                        <p class="sponsor-preview__name" id="sp-preview-name"></p>
+                                        <p class="sponsor-preview__size" id="sp-preview-size"></p>
+                                    </div>
+                                    <button type="button" class="sponsor-preview__remove" id="sp-remove"
+                                        aria-label="Quitar logo">
+                                        <i class="bi bi-x-lg" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="sponsor-error" id="sp-logo-error" role="alert"></p>
+                        </div>
+
+                        <div class="sponsor-field">
+                            <label for="sp-mensaje">Mensaje opcional</label>
+                            <textarea id="sp-mensaje" name="mensaje" rows="4"
+                                placeholder="Contanos sobre tu empresa y por qué buscás ser Sponsor del evento"></textarea>
+                        </div>
+
+                        <button type="submit" class="sponsor-submit">
+                            <i class="bi bi-send" aria-hidden="true"></i>
+                            Enviar postulación de Sponsor
+                        </button>
+                        <p class="sponsor-note">Formulario de ejemplo: no se envía ni se guarda ningún dato.</p>
+                    </form>
+
+                    <!-- Confirmación -->
+                    <div class="sponsor-success" id="sp-success" role="status" aria-live="polite" tabindex="-1" hidden>
+                        <span class="sponsor-success__icon"><i class="bi bi-check-lg" aria-hidden="true"></i></span>
+                        <h3 class="sponsor-success__title">¡Postulación enviada!</h3>
+                        <p class="sponsor-success__text">
+                            Gracias, <strong id="sp-success-name"></strong>. Recibimos la solicitud de <strong
+                                id="sp-success-company"></strong> y nos vamos a contactar con vos a <strong
+                                id="sp-success-email"></strong> en menos de 24 horas hábiles.
+                        </p>
+                        <button type="button" class="sponsor-success__again" id="sp-again">Enviar otra
+                            postulación</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
 <!-- Ubicación RC-10 -->
 <section id="ubicacion">
