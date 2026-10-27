@@ -1,0 +1,812 @@
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(100% - 32px, 1200px);
+  margin-inline: auto;
+}
+
+.partners {
+  padding: 36px 0 64px;
+}
+
+.tier + .tier {
+  margin-top: 72px;
+}
+
+/* =========================
+   2. ENCABEZADOS DE NIVEL
+========================= */
+.tier-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.tier-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid;
+  border-radius: 9px;
+  font-size: 21px;
+}
+
+.diamond-icon {
+  color: #f05a63;
+  background: rgba(224, 32, 42, .13);
+  border-color: rgba(224, 32, 42, .45);
+}
+
+.gold-icon {
+  color: var(--oro);
+  background: rgba(242, 201, 76, .12);
+  border-color: rgba(242, 201, 76, .4);
+}
+
+.bronze-icon {
+  color: var(--naranja);
+  background: rgba(217, 148, 67, .12);
+  border-color: rgba(217, 148, 67, .4);
+}
+
+.tier-heading {
+  min-width: 0;
+}
+
+.tier-title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 3px;
+}
+
+.tier-heading h2 {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.tier-diamond .tier-heading h2 {
+  color: #f05a63;
+}
+
+.tier-gold .tier-heading h2 {
+  color: var(--oro);
+}
+
+.tier-bronze .tier-heading h2 {
+  color: var(--naranja);
+}
+
+.tier-heading p {
+  color: var(--texto-suave);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 4px 9px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.red-badge {
+  color: #f05a63;
+  background: rgba(224, 32, 42, .14);
+  border-color: rgba(224, 32, 42, .35);
+}
+
+.gold-badge {
+  color: var(--oro);
+  background: rgba(242, 201, 76, .12);
+  border-color: rgba(242, 201, 76, .35);
+}
+
+.bronze-badge {
+  color: var(--naranja);
+  background: rgba(217, 148, 67, .12);
+  border-color: rgba(217, 148, 67, .35);
+}
+
+/* =========================
+   3. TARJETAS DIAMANTE
+========================= */
+.diamond-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.partner-card {
+  min-width: 0;
+  border: 1px solid var(--borde);
+  border-radius: 20px;
+  background: var(--superficie);
+}
+
+.diamond-card {
+  --borde-luz: linear-gradient(145deg, #713037, #29292e 85%);
+  --fondo-tarjeta: linear-gradient(160deg, #17171b, #111113 55%, #0b0b0c);
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  min-height: 360px;
+  padding: 28px 26px 20px;
+  overflow: hidden;
+  border: 3px solid transparent;
+  border-radius: 25px;
+  background:
+    var(--fondo-tarjeta) padding-box,
+    var(--borde-luz) border-box;
+  box-shadow: 0 8px 0 rgba(255, 255, 255, .025);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+/* Colores del borde al pasar el mouse */
+.google-card:hover {
+  --borde-luz: linear-gradient(
+    145deg,
+    #ff4656,
+    #e0202a 55%,
+    #6e070c
+  );
+}
+
+.aws-card:hover {
+  --borde-luz: linear-gradient(
+    145deg,
+    #ff4656,
+    #e0202a 55%,
+    #d99443
+  );
+}
+
+.mercado-card:hover {
+  --borde-luz: linear-gradient(
+    145deg,
+    #ff4656,
+    #e0202a 35%,
+    #f2a43a 70%,
+    #ffe04b
+  );
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .diamond-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .google-card:hover,
+  .aws-card:hover {
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, .35),
+      0 0 25px rgba(224, 32, 42, .24);
+  }
+
+  .mercado-card:hover {
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, .35),
+      0 0 25px rgba(224, 32, 42, .2),
+      0 0 20px rgba(242, 201, 76, .12);
+  }
+
+  .diamond-card:hover .external-link {
+    color: var(--blanco);
+    border-color: rgba(255, 255, 255, .2);
+    background: rgba(255, 255, 255, .08);
+  }
+}
+
+.diamond-card:focus-within {
+  outline: 2px solid var(--rojo);
+  outline-offset: 4px;
+}
+
+/* Etiquetas superiores */
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+}
+
+.partner-tag {
+  display: inline-block;
+  max-width: calc(100% - 42px);
+  padding: 5px 11px;
+  border: 1px solid;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.red-tag {
+  color: #f05a63;
+  background: rgba(224, 32, 42, .13);
+  border-color: rgba(224, 32, 42, .32);
+}
+
+.orange-tag {
+  color: #e5a05a;
+  background: rgba(217, 148, 67, .13);
+  border-color: rgba(217, 148, 67, .35);
+}
+
+.yellow-tag {
+  color: #f2d65c;
+  background: rgba(242, 201, 76, .13);
+  border-color: rgba(242, 201, 76, .35);
+}
+
+/* Flechas centradas */
+.external-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--borde-chip);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  color: var(--texto-suave);
+  font-family: Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.external-link:hover {
+  color: var(--blanco);
+  background: var(--chip);
+}
+
+/* Logo, título y descripción */
+.partner-logo {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 92px;
+  height: 92px;
+  margin: 28px 0 25px;
+  padding: 13px;
+  border: 1px solid var(--borde);
+  border-radius: 17px;
+  background: rgba(255, 255, 255, .035);
+}
+
+.partner-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.diamond-card h3 {
+  max-width: 100%;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.3;
+  text-align: center;
+  letter-spacing: -.7px;
+  overflow-wrap: anywhere;
+}
+
+.partner-description {
+  width: 100%;
+  max-width: 340px;
+  margin-top: 10px;
+  color: var(--texto-suave);
+  font-size: 12px;
+  line-height: 1.7;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Pie de tarjeta */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 17px;
+  border-top: 1px solid rgba(255, 255, 255, .06);
+}
+
+.partner-category {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--texto);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.partner-status {
+  font-size: 10px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.mini-icon {
+  font-size: 15px;
+}
+
+.red-text {
+  color: #e54b56;
+}
+
+.orange-text {
+  color: #e5a05a;
+}
+
+.yellow-text {
+  color: #e9d35b;
+}
+
+/* =========================
+   4. NIVEL ORO
+========================= */
+.gold-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.gold-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 170px;
+  padding: 20px 10px;
+  border-color: rgba(217, 168, 67, .3);
+  background: rgba(17, 17, 19, .92);
+  text-align: center;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+
+.gold-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(242, 201, 76, .7);
+  box-shadow: 0 8px 22px rgba(242, 201, 76, .06);
+}
+
+.small-logo {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 14px;
+  padding: 10px;
+  border: 1px solid var(--borde);
+  border-radius: 13px;
+  background: #19191c;
+}
+
+.small-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.gold-card h3 {
+  font-size: 14px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.gold-card p {
+  margin-top: 4px;
+  color: var(--texto-suave);
+  font-size: 11px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.small-tag {
+  max-width: 100%;
+  margin-top: 11px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(242, 201, 76, .09);
+  color: #d8b344;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.globant-dot {
+  color: #c4d84a;
+}
+
+/* =========================
+   5. NIVEL BRONCE
+========================= */
+.bronze-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.bronze-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 125px;
+  padding: 14px 8px;
+  border-radius: 14px;
+  background: rgba(17, 17, 19, .85);
+  text-align: center;
+  transition: border-color .2s ease, transform .2s ease;
+}
+
+.bronze-card:hover {
+  transform: translateY(-2px);
+  border-color: #414148;
+}
+
+.bronze-logo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 9px;
+  padding: 8px;
+  border-radius: 10px;
+  background: #19191c;
+}
+
+.bronze-logo img {
+  width: 100%;
+  height: 100%;
+}
+
+.supabase-logo {
+  background: #13221d;
+}
+
+.digitalocean-logo {
+  background: #151d32;
+}
+
+.cloudflare-logo {
+  background: #281c15;
+}
+
+.mongodb-logo {
+  background: #14221b;
+}
+
+.docker-logo {
+  background: #14212b;
+}
+
+.stripe-logo {
+  background: #1a1931;
+}
+
+.postman-logo {
+  background: #291c15;
+}
+
+.bronze-card h3 {
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.bronze-card p {
+  margin-top: 2px;
+  color: var(--texto-suave);
+  font-size: 10px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* =========================
+   6. RESPONSIVE: TABLET
+========================= */
+@media (max-width: 900px) {
+  .diamond-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .gold-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .bronze-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .diamond-card {
+    padding: 22px 16px 18px;
+  }
+
+  .diamond-card h3 {
+    font-size: 19px;
+  }
+
+  .card-footer {
+    flex-wrap: wrap;
+  }
+
+  .partner-category,
+  .partner-status {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .tier + .tier {
+    margin-top: 56px;
+  }
+}
+
+/* =========================
+   7. RESPONSIVE: CELULAR
+========================= */
+@media (max-width: 600px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .container {
+    width: calc(100% - 32px);
+    max-width: 100%;
+  }
+
+  .partners {
+    padding: 24px 0 40px;
+  }
+
+  .tier + .tier {
+    margin-top: 42px;
+  }
+
+  .tier-header {
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tier-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .tier-heading {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .tier-title-row {
+    gap: 7px;
+  }
+
+  .tier-heading h2 {
+    font-size: 13px;
+    letter-spacing: .6px;
+  }
+
+  .tier-heading p {
+    font-size: 12px;
+    overflow-wrap: anywhere;
+  }
+
+  .tier-badge {
+    min-height: 22px;
+    padding: 4px 7px;
+    font-size: 9px;
+    letter-spacing: .5px;
+  }
+
+  .diamond-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .diamond-card {
+    width: 100%;
+    min-height: 335px;
+    padding: 20px 16px 18px;
+    border-radius: 22px;
+  }
+
+  .card-top {
+    gap: 8px;
+  }
+
+  .partner-tag {
+    max-width: calc(100% - 42px);
+    padding: 5px 8px;
+    font-size: 9px;
+    overflow-wrap: anywhere;
+  }
+
+  .external-link {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .partner-logo {
+    width: 78px;
+    height: 78px;
+    margin: 22px 0 18px;
+  }
+
+  .diamond-card h3 {
+    font-size: 20px;
+    line-height: 1.35;
+  }
+
+  .partner-description {
+    max-width: 100%;
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .card-footer {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 14px;
+  }
+
+  .partner-category {
+    flex: 1 1 auto;
+    font-size: 11px;
+  }
+
+  .partner-status {
+    flex: 0 1 auto;
+    font-size: 10px;
+  }
+
+  .gold-grid,
+  .bronze-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .gold-card {
+    min-height: 155px;
+    padding: 16px 8px;
+  }
+
+  .small-logo {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 12px;
+  }
+
+  .gold-card h3 {
+    font-size: 14px;
+  }
+
+  .gold-card p {
+    font-size: 12px;
+  }
+
+  .small-tag {
+    font-size: 10px;
+  }
+
+  .bronze-card {
+    min-height: 130px;
+    padding: 14px 7px;
+  }
+
+  .bronze-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .bronze-card h3 {
+    font-size: 12px;
+  }
+
+  .bronze-card p {
+    font-size: 11px;
+  }
+}
+
+/* =========================
+   8. CELULARES ESTRECHOS
+========================= */
+@media (max-width: 360px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+
+  .diamond-card {
+    padding-inline: 12px;
+  }
+
+  .diamond-card h3 {
+    font-size: 18px;
+  }
+
+  .partner-tag {
+    padding-inline: 6px;
+    font-size: 8px;
+  }
+
+  .partner-category {
+    font-size: 10px;
+  }
+
+  .partner-status {
+    font-size: 9px;
+  }
+
+  .gold-grid,
+  .bronze-grid {
+    gap: 8px;
+  }
+}
+
+/* =========================
+   9. ACCESIBILIDAD
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}
+h1 {
+    font-size: 45px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 28px;
+    margin-left: 5px;
+    padding-right: 20px;
+    color: white;
+}
