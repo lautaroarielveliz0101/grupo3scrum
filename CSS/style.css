@@ -9,7 +9,10 @@
     --superficie: #121214;
     --borde: #26262a;
     --texto: #fff;
+    --blanco: #fff;
     --texto-suave: #8e8e93;
+    --chip: #1b1b20;
+    --rojo-profundo: rgba(224, 32, 42, 0.16);
 }
 * {
   box-sizing: border-box;
@@ -646,6 +649,24 @@ body {
   background-color: #e0202a;
   border-color: #e0202a;
   transform: translateY(-2px);
+}
+
+@media (max-width: 575.98px) {
+  .main-footer {
+    padding: 28px 16px;
+  }
+
+  .main-footer > .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .main-footer ul {
+    width: 156px;
+    justify-content: center;
+    gap: 12px !important;
+    padding: 0;
+  }
 }
 /* css de entradas */
 
@@ -1807,25 +1828,6 @@ h3 a {
     font-weight: 800;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-
-/* css de ubicación */
-
-#ubicacion {
-    padding: 80px 0;
-    background: transparent;
-    /* usa el fondo de la página */
-    color: var(--texto);
-    font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-}
-
-/* Etiqueta roja */
-#ubicacion .ub-etiqueta {
-    margin: 0 0 20px;
-    color: var(--rojo);
-    font-size: 14px;
-    font-weight: 800;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
 }
 
 /* Título */
@@ -2726,3 +2728,56 @@ body > header {
   }
 }
 /* fin css del header*/
+
+
+
+.carrusel {
+  width: 100%;
+  overflow: hidden;
+  background-color: #e51e2a;
+  color: #1a1a1c;
+  padding: 20px 0;
+}
+
+.carrusel-contenido {
+  display: flex;
+  width: max-content;
+  animation: desplazamiento 20s linear infinite;
+  will-change: transform;
+}
+
+.carrusel-grupo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 50px;
+  padding-right: 50px;
+}
+
+.carrusel-grupo span {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1a1a1c;
+  white-space: nowrap;
+}
+
+/* Pausar al pasar el mouse */
+.carrusel:hover .carrusel-contenido {
+  animation-play-state: paused;
+}
+
+@keyframes desplazamiento {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carrusel .carrusel-contenido {
+    animation-duration: 20s !important;
+  }
+}
