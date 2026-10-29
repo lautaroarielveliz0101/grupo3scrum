@@ -549,57 +549,176 @@
         </div>
 
         <div class="checkout-grid">
-            <form class="checkout-entrada" id="form-entrada">
-            <div class="checkout-paso" id="paso-1">
-                <h3>Elegí tu entrada</h3>
+            <!-- novalidate: la validación de los datos se hace en el JS, paso por paso -->
+            <form class="checkout-entrada" id="form-entrada" novalidate>
 
-                <div class="checkout-tipo-entrada activa" data-nombre="Early Bird" data-precio="25000">
-                    <span>
-                        <h4>Early Bird</h4>
-                        <p>Presencial · hasta el 31/10</p>
-                    </span>
-                    <p>$25.000</p>
-                </div>
+                <!-- ========== PASO 1: ENTRADA ========== -->
+                <div class="checkout-paso" id="paso-1">
+                    <h3 tabindex="-1">Elegí tu entrada</h3>
 
-                <div class="checkout-tipo-entrada" data-nombre="General" data-precio="35000">
-                    <span>
-                        <h4>General</h4>
-                        <p>Presencial · desde el 1/11</p>
-                    </span>
-                    <p>$35.000</p>
-                </div>
-
-                <div class="checkout-tipo-entrada" data-nombre="Virtual" data-precio="15000">
-                    <span>
-                        <h4>Virtual</h4>
-                        <p>Transmisión en vivo y grabación</p>
-                    </span>
-                    <p>$15.000</p>
-                </div>
-
-                <div class="checkout-control-cantidad">
-                    <h4>Cantidad</h4>
-                    <div class="checkout-contador">
-                        <button type="button" id="btn-menos" aria-label="Disminuir cantidad">
-                            <i class="fa-solid fa-minus"></i>
-                        </button>
-
-                        <input type="text" value="1" class="checkout-cantidad-entradas" id="cantidad" disabled>
-
-                        <button type="button" id="btn-mas" aria-label="Aumentar cantidad">
-                            <i class="fa-solid fa-plus"></i>
-                        </button>
+                    <div class="checkout-tipo-entrada activa" data-nombre="Early Bird" data-precio="25000">
+                        <span>
+                            <h4>Early Bird</h4>
+                            <p>Presencial · hasta el 31/10</p>
+                        </span>
+                        <p>$25.000</p>
                     </div>
+
+                    <div class="checkout-tipo-entrada" data-nombre="General" data-precio="35000">
+                        <span>
+                            <h4>General</h4>
+                            <p>Presencial · desde el 1/11</p>
+                        </span>
+                        <p>$35.000</p>
+                    </div>
+
+                    <div class="checkout-tipo-entrada" data-nombre="Virtual" data-precio="15000">
+                        <span>
+                            <h4>Virtual</h4>
+                            <p>Transmisión en vivo y grabación</p>
+                        </span>
+                        <p>$15.000</p>
+                    </div>
+
+                    <div class="checkout-control-cantidad">
+                        <h4>Cantidad</h4>
+                        <div class="checkout-contador">
+                            <button type="button" id="btn-menos" aria-label="Disminuir cantidad">
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+
+                            <input type="text" value="1" class="checkout-cantidad-entradas" id="cantidad"
+                                inputmode="numeric" maxlength="3" autocomplete="off"
+                                aria-label="Cantidad de entradas">
+
+                            <button type="button" id="btn-mas" aria-label="Aumentar cantidad">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="checkout-continuar">Continuar</button>
+
+                    <p class="checkout-aclaracion">
+                        Pasarela de pago de ejemplo: no se procesan pagos ni se guardan datos.
+                    </p>
                 </div>
 
-                <button class="checkout-continuar">Continuar</button>
+                <!-- ========== PASO 2: DATOS ========== -->
+                <div class="checkout-paso" id="paso-2" hidden>
+                    <h3 tabindex="-1">Completá tus datos</h3>
 
-                <p class="checkout-aclaracion">
-                    Pasarela de pago de ejemplo: no se procesan pagos ni se guardan datos.
-                </p>
-            </div>
+                    <div class="checkout-campo">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" autocomplete="given-name"
+                            aria-describedby="error-nombre">
+                        <p class="checkout-campo__error" id="error-nombre" hidden></p>
+                    </div>
 
-                <!-- Pantalla de error de pago -->
+                    <div class="checkout-campo">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" autocomplete="family-name"
+                            aria-describedby="error-apellido">
+                        <p class="checkout-campo__error" id="error-apellido" hidden></p>
+                    </div>
+
+                    <div class="checkout-campo">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel"
+                            aria-describedby="error-telefono">
+                        <p class="checkout-campo__error" id="error-telefono" hidden></p>
+                    </div>
+
+                    <div class="checkout-campo">
+                        <label for="Email">Email</label>
+                        <input type="email" id="Email" name="Email" autocomplete="email" inputmode="email"
+                            aria-describedby="error-Email">
+                        <p class="checkout-campo__error" id="error-Email" hidden></p>
+                    </div>
+
+                    <button type="submit" class="checkout-continuar">Continuar</button>
+                    <button type="button" class="checkout-volver" data-ir-paso="1">Volver</button>
+                </div>
+
+                <!-- ========== PASO 3: MEDIO DE PAGO ========== -->
+                <div class="checkout-paso" id="paso-3" hidden>
+                    <h3 tabindex="-1">Elegí cómo pagar</h3>
+
+                    <fieldset class="checkout-medios">
+                        <legend class="checkout-sr">Medio de pago</legend>
+
+                        <label class="checkout-medio">
+                            <input type="radio" name="medio-pago" value="tarjeta" checked>
+                            <span class="checkout-medio__caja">
+                                <span class="checkout-medio__icono" aria-hidden="true">
+                                    <i class="fa-solid fa-credit-card"></i>
+                                </span>
+                                <span>
+                                    <span class="checkout-medio__titulo">Tarjeta</span>
+                                    <span class="checkout-medio__desc">Crédito o débito</span>
+                                </span>
+                            </span>
+                        </label>
+
+                        <label class="checkout-medio">
+                            <input type="radio" name="medio-pago" value="mercadopago">
+                            <span class="checkout-medio__caja">
+                                <span class="checkout-medio__icono" aria-hidden="true">
+                                    <i class="fa-solid fa-wallet"></i>
+                                </span>
+                                <span>
+                                    <span class="checkout-medio__titulo">Mercado Pago</span>
+                                    <span class="checkout-medio__desc">Con tu cuenta de Mercado Pago</span>
+                                </span>
+                            </span>
+                        </label>
+                    </fieldset>
+
+                    <button type="submit" class="checkout-continuar" id="btn-medio">Continuar</button>
+                    <button type="button" class="checkout-volver" data-ir-paso="2">Volver</button>
+                </div>
+
+                <!-- ========== PASO 3b: DATOS DE LA TARJETA ========== -->
+                <div class="checkout-paso" id="paso-tarjeta" hidden>
+                    <h3 tabindex="-1">Datos de la tarjeta</h3>
+
+                    <div class="checkout-campo">
+                        <label for="tarjeta-numero">Número de tarjeta</label>
+                        <input type="text" id="tarjeta-numero" name="tarjeta-numero" inputmode="numeric"
+                            autocomplete="cc-number" maxlength="23" aria-describedby="error-tarjeta-numero">
+                        <p class="checkout-campo__error" id="error-tarjeta-numero" hidden></p>
+                    </div>
+
+                    <div class="checkout-campo">
+                        <label for="tarjeta-titular">Nombre del titular</label>
+                        <input type="text" id="tarjeta-titular" name="tarjeta-titular"
+                            autocomplete="cc-name" aria-describedby="error-tarjeta-titular">
+                        <p class="checkout-campo__error" id="error-tarjeta-titular" hidden></p>
+                    </div>
+
+                    <div class="checkout-campos-fila">
+                        <div class="checkout-campo">
+                            <label for="tarjeta-vencimiento">Vencimiento</label>
+                            <input type="text" id="tarjeta-vencimiento" name="tarjeta-vencimiento"
+                                inputmode="numeric" autocomplete="cc-exp" maxlength="5" placeholder="MM/AA"
+                                aria-describedby="error-tarjeta-vencimiento">
+                            <p class="checkout-campo__error" id="error-tarjeta-vencimiento" hidden></p>
+                        </div>
+
+                        <div class="checkout-campo">
+                            <label for="tarjeta-cvv">Código de seguridad</label>
+                            <input type="text" id="tarjeta-cvv" name="tarjeta-cvv" inputmode="numeric"
+                                autocomplete="cc-csc" maxlength="4" placeholder="CVV"
+                                aria-describedby="error-tarjeta-cvv">
+                            <p class="checkout-campo__error" id="error-tarjeta-cvv" hidden></p>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="checkout-continuar" id="btn-pagar">Pagar</button>
+                    <button type="button" class="checkout-volver" data-ir-paso="3">Volver</button>
+                </div>
+
+                <!-- ========== ERROR DE PAGO ========== -->
                 <div class="pago-error" id="pago-error" role="alert" hidden>
                     <span class="pago-error__icono" aria-hidden="true">
                         <i class="fa-solid fa-xmark"></i>
@@ -616,9 +735,7 @@
                         <button type="button" class="pago-error__btn pago-error__btn--rojo" id="btn-reintentar">
                             Intentar de nuevo
                         </button>
-                        <button type="button" class="pago-error__btn pago-error__btn--borde" id="btn-volver-compra">
-                            Volver a la compra
-                        </button>
+                        
                     </div>
                 </div>
             </form>
@@ -655,10 +772,7 @@
         </div>
     </div>
     <br>
-
-
 </section>
-
 
 <!--ubicacion de RC-14-->
 <!-- NIVEL DIAMANTE -->
@@ -1195,6 +1309,9 @@
         crossorigin="anonymous"></script>
         <script src="./js/app.js"></script>
         <script src="./js/checkout.js"></script>
+        <script>
+            (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="bQF53WbA529SQWAlQqRvR";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+        </script>
 </body>
 
 </html>
