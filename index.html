@@ -5,25 +5,142 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>¿Por dónde empiezo a programar? | Rolling Code School</title>
-    <link rel="stylesheet" href="./CSS/style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
         rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+<link rel="shortcut icon" href="/assets/header icons/WhatsApp Image 2026-10-27 at 1.55.24 PM.jpeg" type="image/x-icon">    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/sponsorts.css">
+    <link rel="stylesheet" href="./CSS/sponsotrssub.css">
 </head>
 
 <body class="body">
     <!--Header RC-01-->
-    <nav></nav>
+     <header>
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
 
+            <!-- Logo -->
+            <a href="#" class="navbar-logo" aria-label="Rolling Code School">
+                <img
+                    src="assets/header icons/logo-rolling-blanco.png"
+                    alt="Rolling Code School"
+                >
+            </a>
+
+            <!-- Control del menú hamburguesa -->
+            <input
+                type="checkbox"
+                id="menu-toggle"
+                class="menu-checkbox"
+            >
+
+            <!-- Icono hamburguesa: solo aparece en celulares -->
+            <label
+                for="menu-toggle"
+                class="menu-hamburguesa"
+                aria-label="Abrir o cerrar menú"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Enlaces y botón -->
+            <div class="navbar-menu">
+                <div class="navbar-links">
+                    <a href="#speakers">Speakers</a>
+                    <a href="#agenda">Agenda</a>
+                    <a href="#ubicacion">Cómo llegar</a>
+                </div>
+
+                <a href="#entradas" class="btn-entrada">
+                    Comprar entrada
+                </a>
+            </div>
+
+        </div>
+    </nav>
+</header>
+ <!-- FIN RC-01 -->
     <!-- Inicio RC-04 -->
-    <section></section>
+    <main class="main-container">
+
+        <!-- HERO PRINCIPAL (RC-01) -->
+        <section class="hero-card">
+            <div class="hero-grid">
+
+                <!-- Columna izquierda -->
+                <div class="hero-content">
+                    <p class="badge-top">
+                        <span class="work-itala">WORKSHOP</span>
+                        <span class="entradas-lim">ENTRADAS LIMITADAS</span>
+                    </p>
+                    <h1 class="hero-title">
+                        <span class="linea-blanca">¿POR DÓNDE</span><br>
+                        <span class="linea-blanca">EMPIEZO A</span><br>
+                        <span class="linea-negra">PROGRAMAR?</span>
+                    </h1>
+                    <p class="hero-description">
+                        Una tarde con diez speakers de Rolling Code School para ordenar tus primeros pasos: qué
+                        aprender, cómo practicar y cómo mostrar lo que sabés.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#entradas" class="btn-hero-dark">Comprar entrada</a>
+                        <a href="#agenda" class="btn-hero-dark">Ver agenda</a>
+                    </div>
+                </div>
+
+                <!-- Columna derecha (tarjeta negra) -->
+                <div class="event-details-card">
+                    <div class="event-item">
+                        <i class="bi bi-calendar-event icon-rojo"></i>
+                        <div>
+                            <p class="event-title event-title-lg">JUE 19/11</p>
+                            <p class="event-sub">18.00 hs</p>
+                        </div>
+                    </div>
+
+                    <hr class="hr-custom">
+
+                    <div class="event-item">
+                        <i class="bi bi-geo-alt-fill icon-rojo"></i>
+                        <div>
+                            <p class="event-title">Rolling Code School</p>
+                            <p class="event-detail">Gral. Paz 576, Entrepiso</p>
+                        </div>
+                    </div>
+
+                    <hr class="hr-custom">
+
+                    <div class="event-item">
+                        <i class="bi bi-ticket-perforated icon-rojo"></i>
+                        <div>
+                            <p class="event-title">Entradas desde $15.000</p>
+                            <p class="event-detail">Early Bird hasta el 31/10</p>
+                        </div>
+                    </div>
+
+                    <div class="chips-container">
+                        <a class="chip-item" href="/pages/pagina404.html">Presencial</a>
+                        <a class="chip-item" href="/pages/pagina404.html">Virtual</a>
+                        <a class="chip-item" href="/pages/pagina404.html">Cupos limitados</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
 
     <!-- Datos clave RC-03 -->
+     <section>  
     <section id="datos-clave" class="mt-4">
         <div class="datos-container">
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 datos-box">
@@ -49,8 +166,116 @@
             </div>
         </div>
     </section>
+
+    
     <!-- Speakers RC-05 -->
-    <section></section>
+
+    <section id="speakers">
+        <p class="speakers-label">SPEAKERS</p>
+        <h1>Diez charlas, un mismo objetivo</h1>
+
+        <section class="speaker-list">
+
+            <article class="speaker-card">
+                <img src="assets/speakers/tomas escudero corregido.jpg" alt="Tomas Escudero">
+                <div class="speaker-info">
+                    <h2>Tomas Escudero</h2>
+                    <h3 class="topic-red"><a href="pages/pagina404.html">Diseño para developers</a></h3>
+                    <p>Qué mira un equipo de diseño antes de que escribas código y cómo leer un mockup para construirlo
+                        igual.</p>
+                </div>
+            </article>
+
+            <article class="speaker-card">
+                <img src="assets/speakers/franco.jpg" alt="Franco Diaz">
+                <div class="speaker-info">
+                    <h2>Franco Diaz</h2>
+                    <h3><a href="pages/pagina404.html">De cero a tu primer proyecto</a></h3>
+                    <p>Un recorrido para pasar de mirar tutoriales a terminar una app simple con HTML, JavaScript y
+                        React.</p>
+                </div>
+            </article>
+
+            <article class="speaker-card">
+                <img src="assets/speakers/gaston.jpg" alt="Gaston">
+                <div class="speaker-info">
+                    <h2>Gaston Roger</h2>
+                    <h3><a href="pages/pagina404.html">Armá tu portfolio con IA</a></h3>
+                    <p>Cómo usar asistentes de IA para construir y publicar un portfolio que muestre lo que sabés hacer.
+                    </p>
+                </div>
+            </article>
+
+            <article class="speaker-card">
+                <img src="assets/speakers/mauro.jpeg" alt="Mauro">
+                <div class="speaker-info">
+                    <h2>Mauro Coniglio</h2>
+                    <h3><a href="pages/pagina404.html">Git y GitHub sin miedo</a></h3>
+                    <p>Los comandos que vas a usar todos los días y cómo trabajar en equipo sin pisar el código de
+                        otros.</p>
+                </div>
+            </article>
+
+            <article class="speaker-card">
+                <img src="assets/speakers/jose.jpg" alt="Jose Diaz">
+                <div class="speaker-info">
+                    <h2>Jose Diaz</h2>
+                    <h3><a href="pages/pagina404.html">Tu primer backend con Node</a></h3>
+                    <p>Cómo se arma una API, qué hace una base de datos y por dónde empezar para conectar todo.</p>
+                </div>
+            </article>
+
+            <article class="speaker-card">
+                <img src="assets/speakers/tomas gomez.jpg" alt="Tomas Gomez">
+                <div class="speaker-info">
+                    <h2>Tomas Gomez</h2>
+                    <h3><a href="pages/pagina404.html">Preparate para tu primera entrevista</a></h3>
+                    <p>Qué preguntan en una entrevista técnica, cómo practicar y cómo contar tus proyectos con claridad.
+                    </p>
+                </div>
+            </article>
+
+            <article class="speaker-card">
+                <img src="assets/speakers/pablo basso.jpg" alt="Pablo Basso">
+                <div class="speaker-info">
+                    <h2>Pablo Basso</h2>
+                    <h3>Mi primer trabajo en IT</h3>
+                    <p>Una charla en primera persona sobre cómo se consigue el primer puesto y qué se aprende en los
+                        primeros meses.</p>
+                </div>
+            </article>
+
+            <article class="speaker-card">
+                <img src="assets/speakers/foto julian martin corregida.jpg" alt="Julian Martin">
+                <div class="speaker-info">
+                    <h2>Julian Martin</h2>
+                    <h3>Testing: cómo no romper todo</h3>
+                    <p>Qué es testear, por qué importa y cómo escribir tus primeras pruebas sin complicarte.</p>
+                </div>
+            </article>
+
+            <article class="speaker-card">
+                <img src="assets/speakers/daniela cardozo corregida.jpg" alt="Daniela Cardozo">
+                <div class="speaker-info">
+                    <h2>Daniela Cardozo</h2>
+                    <h3>Tu primer día como developer</h3>
+                    <p>Qué esperar de tu primera semana en un equipo, qué herramientas usar y cómo pedir ayuda sin
+                        miedo.</p>
+                </div>
+            </article>
+
+            <article class="speaker-card">
+                <img src="assets/speakers/andres perlo.jpg" alt="Andres Perlo">
+                <div class="speaker-info">
+                    <h2>Andres Perlo</h2>
+                    <h3>Tu primera base de datos</h3>
+                    <p>Qué es una base de datos, para qué sirve y cómo guardar y consultar tus primeros datos.</p>
+                </div>
+            </article>
+
+        </section>
+    </section>
+
 
     <!-- Agenda RC-06 -->
 
@@ -168,6 +393,45 @@
                         </div>
                     </article>
 
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section id="entradas">
+        <div class="container">
+            <p class="eyebrow">ENTRADAS</p>
+            <h2>Asegurá tu lugar antes de que suba el precio</h2>
+
+            <div class="banner-early">
+                <div class="early-info">
+                    <span class="early-tag">EARLY BIRD</span>
+                    <h3>El precio especial termina el 31/10</h3>
+                    <p>Después la entrada pasa de $25.000 a $35.000.</p>
+                </div>
+
+                <div class="contador" aria-label="Tiempo restante">
+                    <div class="caja">
+                        <span class="numero" id="dias">00</span>
+                        <span class="etiqueta">DÍAS</span>
+                    </div>
+                    <div class="caja">
+                        <span class="numero" id="horas">00</span>
+                        <span class="etiqueta">HORAS</span>
+                    </div>
+                    <div class="caja">
+                        <span class="numero" id="min">00</span>
+                        <span class="etiqueta">MIN</span>
+                    </div>
+                </div>
+
+                <div class="cupos">
+                    <div class="cupos-texto">
+                        <strong id="cupos-quedan">Quedan 38 de 60 Early Bird</strong>
+                        <span id="cupos-porcentaje">63% vendidas</span>
+                    </div>
+                    <div class="barra" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="63">
+                        <div class="barra-relleno" id="barra-relleno"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -178,6 +442,93 @@
 
     <!-- Precios RC-08 -->
     <section></section>
+
+    <!-- Precios RC-08 -->
+    <!-- Precios RC-08 -->
+<section id="precios" class="py-5">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+            
+            <!-- TARJETA 1: Early Bird (Ocupa 1 columna en md/lg) -->
+            <div class="col-12 col-md-6">
+                <div class="card card-red h-100 p-4 border-0 shadow-lg rounded-4 text-white">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3 class="fw-bold fs-4 m-0">Early Bird</h3>
+                        <span class="badge bg-black text-white px-3 py-2 rounded-pill fs-6">Quedan 38</span>
+                    </div>
+
+                    <div class="d-flex align-items-baseline gap-2 mb-2">
+                        <span class="display-5 fw-bolder">$25.000</span>
+                        <span class="fs-5 text-white-50 text-decoration-line-through">$35.000</span>
+                    </div>
+
+                    <p class="text-white-50 small mb-4">Presencial · precio especial hasta el 31/10</p>
+
+                    <ul class="list-unstyled d-flex flex-column gap-3 mb-4 flex-grow-1">
+                        <li class="d-flex align-items-center gap-2"><span class="fw-bold">✓</span> Acceso a las 10 charlas</li>
+                        <li class="d-flex align-items-center gap-2"><span class="fw-bold">✓</span> Kit de stickers Rolling Code</li>
+                        <li class="d-flex align-items-center gap-2"><span class="fw-bold">✓</span> Certificado de asistencia</li>
+                        <li class="d-flex align-items-center gap-2"><span class="fw-bold">✓</span> Coffee break y networking con los speakers</li>
+                        <li class="d-flex align-items-center gap-2"><span class="fw-bold">✓</span> Grabación de todas las charlas</li>
+                    </ul>
+
+                    <a href="#" class="btn btn-card-rojo">Comprar entrada</a>
+                </div>
+            </div>
+
+            <!-- TARJETA 2: General (Ocupa 1 columna en md/lg) -->
+            <div class="col-12 col-md-6">
+                <div class="card card-dark h-100 p-4 shadow-lg rounded-4 text-white">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3 class="fw-bold fs-4 m-0">General</h3>
+                        <span class="badge badge-outline px-3 py-2 rounded-pill fs-6">Desde el 1/11</span>
+                    </div>
+
+                    <div class="d-flex align-items-baseline gap-2 mb-2">
+                        <span class="display-5 fw-bolder">$35.000</span>
+                    </div>
+
+                    <p class="text-secondary small mb-4">Presencial · precio regular</p>
+
+                    <ul class="list-unstyled d-flex flex-column gap-3 mb-4 flex-grow-1">
+                        <li class="d-flex align-items-center gap-2"><span class="text-danger fw-bold">✓</span> Acceso a las 10 charlas</li>
+                        <li class="d-flex align-items-center gap-2"><span class="text-danger fw-bold">✓</span> Certificado de asistencia</li>
+                        <li class="d-flex align-items-center gap-2"><span class="text-danger fw-bold">✓</span> Coffee break y networking con los speakers</li>
+                        <li class="d-flex align-items-center gap-2"><span class="text-danger fw-bold">✓</span> Grabación de todas las charlas</li>
+                    </ul>
+
+                    <button class="btn btn-outline-light w-100 py-3 rounded-pill fw-bold">Comprar entrada</button>
+                </div>
+            </div>
+
+            <!-- TARJETA 3: Virtual (Ocupa las 2 columnas abajo con col-12) -->
+            <div class="col-12">
+                <div class="card card-dark h-100 p-4 shadow-lg rounded-4 text-white">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3 class="fw-bold fs-4 m-0">Virtual</h3>
+                        <span class="badge badge-outline px-3 py-2 rounded-pill fs-6">Desde donde estés</span>
+                    </div>
+
+                    <div class="d-flex align-items-baseline gap-2 mb-2">
+                        <span class="display-5 fw-bolder">$15.000</span>
+                    </div>
+
+                    <p class="text-secondary small mb-4">Transmisión en vivo</p>
+
+                    <ul class="list-unstyled d-flex flex-column gap-3 mb-4 flex-grow-1">
+                        <li class="d-flex align-items-center gap-2"><span class="text-danger fw-bold">✓</span> Transmisión en vivo de las 10 charlas</li>
+                        <li class="d-flex align-items-center gap-2"><span class="text-danger fw-bold">✓</span> Chat para hacer preguntas a los speakers</li>
+                        <li class="d-flex align-items-center gap-2"><span class="text-danger fw-bold">✓</span> Certificado de asistencia</li>
+                        <li class="d-flex align-items-center gap-2"><span class="text-danger fw-bold">✓</span> Grabación disponible por 30 días</li>
+                    </ul>
+
+                    <button class="btn btn-outline-light w-100 py-3 rounded-pill fw-bold">Comprar entrada</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <!-- Entradas RC-09 -->
 
@@ -199,6 +550,7 @@
 
         <div class="checkout-grid">
             <form class="checkout-entrada" id="form-entrada">
+            <div class="checkout-paso" id="paso-1">
                 <h3>Elegí tu entrada</h3>
 
                 <div class="checkout-tipo-entrada activa" data-nombre="Early Bird" data-precio="25000">
@@ -245,6 +597,30 @@
                 <p class="checkout-aclaracion">
                     Pasarela de pago de ejemplo: no se procesan pagos ni se guardan datos.
                 </p>
+            </div>
+
+                <!-- Pantalla de error de pago -->
+                <div class="pago-error" id="pago-error" role="alert" hidden>
+                    <span class="pago-error__icono" aria-hidden="true">
+                        <i class="fa-solid fa-xmark"></i>
+                    </span>
+
+                    <h2 class="pago-error__titulo" id="pago-error-titulo" tabindex="-1">No pudimos procesar tu pago</h2>
+
+                    <p class="pago-error__texto">
+                        Tu pedido no se confirmó y no se hizo ningún cargo.
+                        Revisá los datos o probá con otro medio de pago.
+                    </p>
+
+                    <div class="pago-error__botones">
+                        <button type="button" class="pago-error__btn pago-error__btn--rojo" id="btn-reintentar">
+                            Intentar de nuevo
+                        </button>
+                        <button type="button" class="pago-error__btn pago-error__btn--borde" id="btn-volver-compra">
+                            Volver a la compra
+                        </button>
+                    </div>
+                </div>
             </form>
 
             <article class="pedido">
@@ -278,17 +654,547 @@
             </article>
         </div>
     </div>
+    <br>
+
+
 </section>
 
-<!-- Ubicación RC-10 -->
-<section></section>
 
-<!-- Footer RC-11 -->
-<footer></footer>
+<!--ubicacion de RC-14-->
+<!-- NIVEL DIAMANTE -->
+    <section class="tier tier-diamond" aria-labelledby="diamond-title">
+     <h1 class="titulo"> Los sponsors principales del evento son:</h1>
+     <br>
+
+      <header class="tier-header">
+        <div class="tier-icon diamond-icon" aria-hidden="true">♕</div>
+
+        <div class="tier-heading">
+          <div class="tier-title-row">
+            <h2 id="diamond-title">MAIN PARTNERS</h2>
+            <span class="tier-badge red-badge">TIER DIAMANTE</span>
+          </div>
+
+          <p>
+            Presencia estelar en conferencias, stands experienciales
+            y becas formativas
+          </p>
+        </div>
+      </header>
+
+      <div class="diamond-grid">
+
+        <article class="partner-card diamond-card google-card">
+          <div class="card-top">
+            <span class="partner-tag red-tag">LEAD CLOUD PARTNER</span>
+            <a class="external-link" href="https://cloud.google.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Visitar Google Cloud">↗</a>
+          </div>
+
+          <div class="partner-logo">
+            <img src="./assets/iconos sponssortss/WhatsApp Image 2026-10-27 at 7.33.54 AM.png" alt="Google Cloud">
+          </div>
+
+          <h3>Google Cloud</h3>
+
+          <p class="partner-description">
+            Infraestructura global ultra-escalable, Gemini AI APIs
+            y programas de formación profesional para devs.
+          </p>
+
+          <div class="card-footer">
+            <span class="partner-category">
+              <span class="mini-icon red-text">⚙</span>
+              Cloud &amp; AI
+            </span>
+            <span class="partner-status red-text">100% Verified</span>
+          </div>
+        </article>
+
+        <article class="partner-card diamond-card aws-card">
+          <div class="card-top">
+            <span class="partner-tag orange-tag">INFRASTRUCTURE PARTNER</span>
+            <a class="external-link" href="https://aws.amazon.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Visitar Amazon Web Services">↗</a>
+          </div>
+
+          <div class="partner-logo">
+            <img src="./assets/iconos sponssortss/aws con fondo.png" alt="Amazon Web Services">
+          </div>
+
+          <h3>Amazon Web Services</h3>
+
+          <p class="partner-description">
+            Servicios de nube, arquitecturas serverless y vouchers
+            para certificaciones oficiales para la comunidad.
+          </p>
+
+          <div class="card-footer">
+            <span class="partner-category">
+              <span class="mini-icon orange-text">▤</span>
+              Cloud Hosting
+            </span>
+            <span class="partner-status orange-text">Global Leader</span>
+          </div>
+        </article>
+
+        <article class="partner-card diamond-card mercado-card">
+          <div class="card-top">
+            <span class="partner-tag yellow-tag">FINTECH &amp; E-COMMERCE</span>
+            <a class="external-link" href="https://www.mercadolibre.com/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="Visitar Mercado Libre">↗</a>
+          </div>
+
+          <div class="partner-logo">
+            <img src="./assets/iconos sponssortss/icono mercado libre sin fondo.png" alt="Mercado Libre">
+          </div>
+
+          <h3>Mercado Libre</h3>
+
+          <p class="partner-description">
+            El mayor ecosistema tech de Latinoamérica impulsando
+            becas, hackathons y pasantías directas de empleo.
+          </p>
+
+          <div class="card-footer">
+            <span class="partner-category">
+              <span class="mini-icon yellow-text">▤</span>
+              Fintech Scale
+            </span>
+            <span class="partner-status yellow-text">Unicorn LATAM</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- NIVEL ORO -->
+    <section class="tier tier-gold" aria-labelledby="gold-title">
+
+      <header class="tier-header">
+        <div class="tier-icon gold-icon" aria-hidden="true">♙</div>
+
+        <div class="tier-heading">
+          <div class="tier-title-row">
+            <h2 id="gold-title">GOLD TIER</h2>
+            <span class="tier-badge gold-badge">NIVEL ORO</span>
+          </div>
+
+          <p>
+            Líderes de producto, frameworks y transformación digital global
+          </p>
+        </div>
+      </header>
+
+      <div class="gold-grid">
+
+        <article class="partner-card gold-card">
+          <div class="small-logo">
+            <img src="./assets/iconos sponssortss/A con fondo.png" alt="Microsoft">
+          </div>
+          <h3>Microsoft</h3>
+          <p>Azure &amp; Dev Tools</p>
+          <span class="small-tag">Enterprise</span>
+        </article>
+
+        <article class="partner-card gold-card">
+          <div class="small-logo">
+            <img src="./assets/iconos sponssortss/git hub con fondo.png" alt="GitHub">
+          </div>
+          <h3>GitHub</h3>
+          <p>Open Source &amp; Copilot</p>
+          <span class="small-tag">Community</span>
+        </article>
+
+        <article class="partner-card gold-card">
+          <div class="small-logo">
+            <img src="./assets/iconos sponssortss/G con fondo.png" alt="Globant">
+          </div>
+          <h3>Globant <span class="globant-dot">•</span></h3>
+          <p>Tech Reinvention</p>
+          <span class="small-tag">Global Talent</span>
+        </article>
+
+        <article class="partner-card gold-card">
+          <div class="small-logo">
+            <img src="./assets/iconos sponssortss/escudo con fondo.png" alt="Auth0">
+          </div>
+          <h3>Auth0</h3>
+          <p>Identity &amp; Security</p>
+          <span class="small-tag">Security</span>
+        </article>
+
+        <article class="partner-card gold-card">
+          <div class="small-logo">
+            <img src="./assets/iconos sponssortss/triangulo con fondo.png" alt="Vercel">
+          </div>
+          <h3>Vercel</h3>
+          <p>Frontend Cloud &amp; Next</p>
+          <span class="small-tag">Deployment</span>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- NIVEL BRONCE -->
+    <section class="tier tier-bronze" aria-labelledby="bronze-title">
+
+      <header class="tier-header">
+        <div class="tier-icon bronze-icon" aria-hidden="true">▱</div>
+
+        <div class="tier-heading">
+          <div class="tier-title-row">
+            <h2 id="bronze-title">BRONZE TIER</h2>
+            <span class="tier-badge bronze-badge">NIVEL BRONCE</span>
+          </div>
+
+          <p>
+            Herramientas y plataformas predilectas de la comunidad de desarrolladores
+          </p>
+        </div>
+      </header>
+
+      <div class="bronze-grid">
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo supabase-logo">
+            <img src="./assets/iconos sponssortss/logo tipo verde sin fondo.png" alt="Supabase">
+          </div>
+          <h3>Supabase</h3>
+          <p>Open-source DB</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo digitalocean-logo">
+            <img src="./assets/iconos sponssortss/digitalocean sin fondo.png" alt="DigitalOcean">
+          </div>
+          <h3>DigitalOcean</h3>
+          <p>Cloud VPS</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo cloudflare-logo">
+            <img src="./assets/iconos sponssortss/nube con fondo.png" alt="Cloudflare">
+          </div>
+          <h3>Cloudflare</h3>
+          <p>Edge &amp; DNS</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo mongodb-logo">
+            <img src="./assets/iconos sponssortss/hoja sin fondo.png" alt="MongoDB">
+          </div>
+          <h3>MongoDB</h3>
+          <p>Document DB</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo docker-logo">
+            <img src="./assets/iconos sponssortss/ballena sin fondo.png" alt="Docker">
+          </div>
+          <h3>Docker</h3>
+          <p>Containers</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo stripe-logo">
+            <img src="./assets/iconos sponssortss/austronauta.png" alt="Stripe">
+          </div>
+          <h3>Stripe</h3>
+          <p>Payments API</p>
+        </article>
+
+        <article class="partner-card bronze-card">
+          <div class="bronze-logo postman-logo">
+            <img src="./assets/iconos sponssortss/logo raro sin fondo.png" alt="Postman">
+          </div>
+          <h3>Postman</h3>
+          <p>API Platform</p>
+        </article>
+
+      </div>
+    </section>
+    <br> <br>
+    <br> <br>
+
+    
+<!-- Ubicación RC-15 -->
+
+<section id="sumate-sponsor" class="sponsor" aria-labelledby="sponsor-titulo">
+
+            <div class="sponsor__container">
+
+                <header class="sponsor__intro">
+                    <h2 id="sponsor-titulo" class="sponsor__title">Sumate como Sponsor</h2>
+                    <p class="sponsor__text">
+                        Conectá tu marca con más de 120 talentos IT, programadores junior, semi-seniors y líderes
+                        tecnológicos del norte argentino. Completá el formulario y nos contactaremos en menos de 24
+                        horas hábiles.
+                    </p>
+                </header>
+
+
+                <div class="sponsor-card">
+
+                    <form id="sponsor-form" class="sponsor-form" novalidate>
+                        <div class="sponsor-grid">
+
+                            <div class="sponsor-field">
+                                <label for="sp-nombre">Nombre <span class="req" aria-hidden="true">*</span></label>
+                                <input type="text" id="sp-nombre" name="nombre" placeholder="Ej. Martín"
+                                    autocomplete="given-name" required aria-describedby="sp-nombre-error">
+                                <p class="sponsor-error" id="sp-nombre-error" role="alert"></p>
+                            </div>
+
+                            <div class="sponsor-field">
+                                <label for="sp-apellido">Apellido <span class="req" aria-hidden="true">*</span></label>
+                                <input type="text" id="sp-apellido" name="apellido" placeholder="Ej. González"
+                                    autocomplete="family-name" required aria-describedby="sp-apellido-error">
+                                <p class="sponsor-error" id="sp-apellido-error" role="alert"></p>
+                            </div>
+
+                            <div class="sponsor-field">
+                                <label for="sp-empresa">Empresa <span class="req" aria-hidden="true">*</span></label>
+                                <input type="text" id="sp-empresa" name="empresa" placeholder="Ej. Acme Technologies"
+                                    autocomplete="organization" required aria-describedby="sp-empresa-error">
+                                <p class="sponsor-error" id="sp-empresa-error" role="alert"></p>
+                            </div>
+
+                            <div class="sponsor-field">
+                                <label for="sp-email">Email corporativo <span class="req"
+                                        aria-hidden="true">*</span></label>
+                                <input type="email" id="sp-email" name="email" placeholder="martin@acme.com"
+                                    autocomplete="email" required aria-describedby="sp-email-error">
+                                <p class="sponsor-error" id="sp-email-error" role="alert"></p>
+                            </div>
+
+                        </div>
+
+                        <div class="sponsor-field">
+                            <label for="sp-tipo">Tipo de sponsor <span class="req" aria-hidden="true">*</span></label>
+                            <div class="sponsor-select">
+                                <select id="sp-tipo" name="tipo" required aria-describedby="sp-tipo-error">
+                                    <option value="" selected>Seleccioná un nivel de sponsoreo</option>
+                                    <option value="platino">Platino</option>
+                                    <option value="oro">Oro</option>
+                                    <option value="plata">Plata</option>
+                                    <option value="colaborador">Colaborador</option>
+                                </select>
+                                <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                            </div>
+                            <p class="sponsor-error" id="sp-tipo-error" role="alert"></p>
+                        </div>
+
+                        <div class="sponsor-field">
+                            <span class="sponsor-label" id="sp-logo-label">Logo de la empresa</span>
+
+                            <div class="sponsor-drop" id="sp-drop" aria-describedby="sp-logo-error">
+                                <input type="file" id="sp-logo" name="logo"
+                                    accept=".png,.svg,.jpg,.jpeg,.webp,image/png,image/svg+xml,image/jpeg,image/webp"
+                                    class="sponsor-sr-only" aria-labelledby="sp-logo-label sp-drop-title">
+
+                                <label for="sp-logo" class="sponsor-drop__empty" id="sp-drop-empty">
+                                    <span class="sponsor-drop__icon"><i class="bi bi-cloud-arrow-up"
+                                            aria-hidden="true"></i></span>
+                                    <span class="sponsor-drop__title" id="sp-drop-title">Hacé clic para adjuntar tu logo
+                                        o arrastralo aquí</span>
+                                    <span class="sponsor-drop__hint">Archivos aceptados: PNG, SVG, JPG o WEBP (fondo
+                                        transparente recomendado, máx. 5MB)</span>
+                                </label>
+
+                                <div class="sponsor-preview" id="sp-preview" hidden>
+                                    <div class="sponsor-preview__thumb"><img id="sp-preview-img"
+                                            alt="Vista previa del logo seleccionado"></div>
+                                    <div class="sponsor-preview__info">
+                                        <p class="sponsor-preview__name" id="sp-preview-name"></p>
+                                        <p class="sponsor-preview__size" id="sp-preview-size"></p>
+                                    </div>
+                                    <button type="button" class="sponsor-preview__remove" id="sp-remove"
+                                        aria-label="Quitar logo">
+                                        <i class="bi bi-x-lg" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="sponsor-error" id="sp-logo-error" role="alert"></p>
+                        </div>
+
+                        <div class="sponsor-field">
+                            <label for="sp-mensaje">Mensaje opcional</label>
+                            <textarea id="sp-mensaje" name="mensaje" rows="4"
+                                placeholder="Contanos sobre tu empresa y por qué buscás ser Sponsor del evento"></textarea>
+                        </div>
+
+                        <button type="submit" class="sponsor-submit">
+                            <i class="bi bi-send" aria-hidden="true"></i>
+                            Enviar postulación de Sponsor
+                        </button>
+                        <p class="sponsor-note">Formulario de ejemplo: no se envía ni se guarda ningún dato.</p>
+                    </form>
+
+                    <!-- Confirmación -->
+                    <div class="sponsor-success" id="sp-success" role="status" aria-live="polite" tabindex="-1" hidden>
+                        <span class="sponsor-success__icon"><i class="bi bi-check-lg" aria-hidden="true"></i></span>
+                        <h3 class="sponsor-success__title">¡Postulación enviada!</h3>
+                        <p class="sponsor-success__text">
+                            Gracias, <strong id="sp-success-name"></strong>. Recibimos la solicitud de <strong
+                                id="sp-success-company"></strong> y nos vamos a contactar con vos a <strong
+                                id="sp-success-email"></strong> en menos de 24 horas hábiles.
+                        </p>
+                        <button type="button" class="sponsor-success__again" id="sp-again">Enviar otra
+                            postulación</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+<!-- Ubicación RC-10 -->
+<section id="ubicacion">
+        <div class="container">
+            <div class="row align-items-center g-5">
+
+                <!-- Columna izquierda -->
+                <div class="col-lg-6">
+                    <p class="ub-etiqueta">Cómo llegar</p>
+                    <h2 class="ub-titulo">Te esperamos en Rolling Code <br> School</h2>
+
+                    <div class="ub-direccion">
+                        <svg class="ub-direccion-icono" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />
+                        </svg>
+                        <div>
+                            <p class="ub-direccion-linea1">Calle Gral. Paz 576, Entrepiso</p>
+                            <p class="ub-direccion-linea2">4000 San Miguel de Tucumán, Tucumán</p>
+                        </div>
+                    </div>
+
+                    <ul class="ub-chips">
+                        <li class="ub-chip">Jueves 19/11</li>
+                        <li class="ub-chip">18.00 hs</li>
+                        <li class="ub-chip">Entrepiso</li>
+                    </ul>
+
+                    <div class="ub-botones">
+                        <a class="ub-btn ub-btn-rojo" href="https://www.bing.com/maps?cp=-26.8366~-65.2072&lvl=17"
+                            target="_blank" rel="noopener">Abrir en Bing Maps</a>
+                        <a class="ub-btn ub-btn-borde" href="#entradas">Comprar entrada</a>
+                    </div>
+                </div>
+
+                <!-- Columna derecha -->
+                <div class="col-lg-6">
+                    <div class="ub-mapa">
+
+                        <!-- Respaldo oscuro con pin (se ve si el iframe no carga) -->
+                        <div class="ub-mapa-respaldo" aria-hidden="true">
+                            <span class="ub-calle-h"></span>
+                            <span class="ub-calle-v"></span>
+                            <span class="ub-pin">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" />
+                                </svg>
+                            </span>
+                        </div>
+
+                        <iframe title="Mapa de Rolling Code School en Bing Maps"
+                            src="https://www.bing.com/maps/embed?h=420&w=700&cp=-26.8366~-65.2072&lvl=17&typ=d&sty=r&src=SHELL&FORM=MBEDV8"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                            onload="this.classList.add('ub-cargado')"></iframe>
+
+                        <div class="ub-mapa-info">
+                            <div>
+                                <p class="ub-mapa-nombre">Rolling Code School</p>
+                                <p class="ub-mapa-calle">Gral. Paz 576 · San Miguel de Tucumán</p>
+                            </div>
+                            <p class="ub-mapa-coord">-26.8366, -65.2072</p>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+ 
+<section class="carrusel">
+  <div class="carrusel-contenido">
+    <div class="carrusel-grupo">
+      <span>ROLLING CODE</span>
+      <span>ROLLING CODE</span>
+      <span>ROLLING CODE</span>
+      <span>ROLLING CODE</span>
+    </div>
+
+    <div class="carrusel-grupo" aria-hidden="true">
+      <span>ROLLING CODE</span>
+      <span>ROLLING CODE</span>
+      <span>ROLLING CODE</span>
+      <span>ROLLING CODE</span>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer RC-11 -->
+    
+        <!-- Footer -->
+<footer class="main-footer border-top-custom">
+  <div class="container d-flex justify-content-between align-items-center">
+    
+    <a href="#" class="mb-0">
+      <img 
+        src="./img/assets-rolling-workshop/logo/logo-rolling-blanco.png" 
+        alt="Rolling Code School" 
+        class="footer-logo"
+      >
+    </a>
+
+    <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0">
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-btn">
+          <img src="./img/assets-rolling-workshop/iconos/instagram.svg" alt="Instagram" class="social-icon-img">
+        </a>
+      </li>
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon-btn">
+          <img src="./img/assets-rolling-workshop/iconos/facebook.svg" alt="Facebook" class="social-icon-img">
+        </a>
+      </li>
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon-btn">
+          <img src="./img/assets-rolling-workshop/iconos/linkedin.svg" alt="LinkedIn" class="social-icon-img">
+        </a>
+      </li>
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon-btn">
+          <img src="./img/assets-rolling-workshop/iconos/youtube.svg" alt="YouTube" class="social-icon-img">
+        </a>
+      </li>
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="X (Twitter)" class="social-icon-btn">
+          <img src="./img/assets-rolling-workshop/iconos/x.svg" alt="X" class="social-icon-img">
+        </a>
+      </li>
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="GitHub" class="social-icon-btn">
+          <img src="./img/assets-rolling-workshop/iconos/github.svg" alt="GitHub" class="social-icon-img">
+        </a>
+      </li>
+    </ul>
+    
+  </div>
+</footer>
+
 <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
-integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
-crossorigin="anonymous"></script>
-<script src="./ts/checkout.js"></script>
+        integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
+        crossorigin="anonymous"></script>
+        <script src="./js/app.js"></script>
+        <script src="./js/checkout.js"></script>
 </body>
 
 </html>

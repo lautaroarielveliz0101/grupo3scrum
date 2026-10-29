@@ -1,26 +1,37 @@
-
-img {
+.img {
   display: block;
   max-width: 100%;
   object-fit: contain;
 }
+.titulo {
+  margin-bottom: 28px;
+  padding-right: 20px;
+  color: #fff;
+  font-size: 45px;
+  font-weight: 800;
+  line-height: 1.1;
+}
 
-a {
+.tier a {
   color: inherit;
   text-decoration: none;
 }
 
-.container {
-  width: min(100% - 32px, 1200px);
+.partners {
+  width: calc(100% - 48px);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 0 56px;
+  box-sizing: border-box;
+}
+
+.tier {
+  width: min(100% - 40px, 1200px);
   margin-inline: auto;
 }
 
-.partners {
-  padding: 36px 0 64px;
-}
-
 .tier + .tier {
-  margin-top: 72px;
+  margin-top: 56px;
 }
 
 /* =========================
@@ -29,19 +40,19 @@ a {
 .tier-header {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 28px;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
 .tier-icon {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border: 1px solid;
   border-radius: 9px;
-  font-size: 21px;
+  font-size: 19px;
 }
 
 .diamond-icon {
@@ -70,7 +81,7 @@ a {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   margin-bottom: 3px;
 }
 
@@ -134,7 +145,7 @@ a {
 .diamond-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: 20px;
 }
 
 .partner-card {
@@ -153,11 +164,11 @@ a {
   flex-direction: column;
   align-items: center;
   min-width: 0;
-  min-height: 360px;
-  padding: 28px 26px 20px;
+  min-height: 330px;
+  padding: 24px 22px 18px;
   overflow: hidden;
   border: 3px solid transparent;
-  border-radius: 25px;
+  border-radius: 22px;
   background:
     var(--fondo-tarjeta) padding-box,
     var(--borde-luz) border-box;
@@ -269,16 +280,16 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 0 0 34px;
-  width: 34px;
-  height: 34px;
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
   padding: 0;
   border: 1px solid var(--borde-chip);
   border-radius: 50%;
   background: rgba(255, 255, 255, .04);
   color: var(--texto-suave);
   font-family: Arial, sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1;
   text-align: center;
@@ -296,10 +307,10 @@ a {
   display: grid;
   place-items: center;
   flex-shrink: 0;
-  width: 92px;
-  height: 92px;
-  margin: 28px 0 25px;
-  padding: 13px;
+  width: 82px;
+  height: 82px;
+  margin: 22px 0 20px;
+  padding: 11px;
   border: 1px solid var(--borde);
   border-radius: 17px;
   background: rgba(255, 255, 255, .035);
@@ -310,9 +321,13 @@ a {
   height: 100%;
 }
 
+.mercado-card .partner-logo img {
+  object-fit: contain;
+}
+
 .diamond-card h3 {
   max-width: 100%;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
   line-height: 1.3;
   text-align: center;
@@ -339,14 +354,14 @@ a {
   gap: 10px;
   width: 100%;
   margin-top: auto;
-  padding-top: 17px;
+  padding-top: 14px;
   border-top: 1px solid rgba(255, 255, 255, .06);
 }
 
 .partner-category {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 6px;
   color: var(--texto);
   font-size: 11px;
   font-weight: 600;
@@ -380,7 +395,7 @@ a {
 .gold-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 16px;
+  gap: 14px;
 }
 
 .gold-card {
@@ -389,8 +404,8 @@ a {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: 170px;
-  padding: 20px 10px;
+  min-height: 155px;
+  padding: 16px 9px;
   border-color: rgba(217, 168, 67, .3);
   background: rgba(17, 17, 19, .92);
   text-align: center;
@@ -406,10 +421,10 @@ a {
 .small-logo {
   display: grid;
   place-items: center;
-  width: 58px;
-  height: 58px;
-  margin-bottom: 14px;
-  padding: 10px;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 11px;
+  padding: 9px;
   border: 1px solid var(--borde);
   border-radius: 13px;
   background: #19191c;
@@ -421,7 +436,7 @@ a {
 }
 
 .gold-card h3 {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   overflow-wrap: anywhere;
 }
@@ -456,7 +471,7 @@ a {
 .bronze-grid {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 14px;
+  gap: 12px;
 }
 
 .bronze-card {
@@ -465,8 +480,8 @@ a {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: 125px;
-  padding: 14px 8px;
+  min-height: 115px;
+  padding: 12px 7px;
   border-radius: 14px;
   background: rgba(17, 17, 19, .85);
   text-align: center;
@@ -481,10 +496,10 @@ a {
 .bronze-logo {
   display: grid;
   place-items: center;
-  width: 40px;
-  height: 40px;
-  margin-bottom: 9px;
-  padding: 8px;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 7px;
+  padding: 7px;
   border-radius: 10px;
   background: #19191c;
 }
@@ -522,6 +537,11 @@ a {
   background: #291c15;
 }
 
+.stripe-logo img,
+.postman-logo img {
+  transform: translateY(-3px);
+}
+
 .bronze-card h3 {
   font-size: 12px;
   font-weight: 800;
@@ -541,6 +561,10 @@ a {
    6. RESPONSIVE: TABLET
 ========================= */
 @media (max-width: 900px) {
+  .titulo {
+    font-size: 44px;
+  }
+
   .diamond-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
@@ -575,7 +599,7 @@ a {
   }
 
   .tier + .tier {
-    margin-top: 56px;
+    margin-top: 44px;
   }
 }
 
@@ -583,6 +607,11 @@ a {
    7. RESPONSIVE: CELULAR
 ========================= */
 @media (max-width: 600px) {
+  .titulo {
+    margin-bottom: 20px;
+    font-size: 32px;
+  }
+
   html,
   body {
     width: 100%;
@@ -599,19 +628,23 @@ a {
     padding: 24px 0 40px;
   }
 
+  .tier {
+    width: calc(100% - 32px);
+  }
+
   .tier + .tier {
-    margin-top: 42px;
+    margin-top: 36px;
   }
 
   .tier-header {
     align-items: flex-start;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
 
   .tier-icon {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 
   .tier-heading {
@@ -647,9 +680,9 @@ a {
 
   .diamond-card {
     width: 100%;
-    min-height: 335px;
-    padding: 20px 16px 18px;
-    border-radius: 22px;
+    min-height: 310px;
+    padding: 18px 14px 16px;
+    border-radius: 20px;
   }
 
   .card-top {
@@ -664,26 +697,26 @@ a {
   }
 
   .external-link {
-    flex-basis: 36px;
-    width: 36px;
-    height: 36px;
+    flex-basis: 32px;
+    width: 32px;
+    height: 32px;
   }
 
   .partner-logo {
-    width: 78px;
-    height: 78px;
-    margin: 22px 0 18px;
+    width: 70px;
+    height: 70px;
+    margin: 18px 0 16px;
   }
 
   .diamond-card h3 {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.35;
   }
 
   .partner-description {
     max-width: 100%;
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.6;
   }
 
@@ -710,18 +743,18 @@ a {
   }
 
   .gold-card {
-    min-height: 155px;
-    padding: 16px 8px;
+    min-height: 145px;
+    padding: 14px 7px;
   }
 
   .small-logo {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 12px;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 10px;
   }
 
   .gold-card h3 {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .gold-card p {
@@ -733,17 +766,17 @@ a {
   }
 
   .bronze-card {
-    min-height: 130px;
-    padding: 14px 7px;
+    min-height: 120px;
+    padding: 12px 6px;
   }
 
   .bronze-logo {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
   }
 
   .bronze-card h3 {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .bronze-card p {
@@ -801,12 +834,11 @@ a {
     animation-duration: .01ms !important;
   }
 }
-h1 {
-    font-size: 45px;
+body > h1 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 28px;
-    margin-left: 5px;
-    padding-right: 20px;
+    line-height: 1.15;
+    margin: 0 auto 24px;
+    width: min(100% - 40px, 1200px);
     color: white;
 }
