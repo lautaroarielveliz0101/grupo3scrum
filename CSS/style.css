@@ -1113,6 +1113,216 @@ body {
     opacity: 0.35;
     cursor: not-allowed;
 }
+.checkout-caja-titulo button.activo {
+    background: var(--negro);
+    border-color: var(--negro);
+    color: #fff;
+}
+ 
+/* Solo para lectores de pantalla */
+.checkout-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+ 
+/* El título del paso recibe foco por JS: sin contorno */
+.checkout-paso h3:focus {
+    outline: none;
+}
+ 
+/* ---------- PASO 2: CAMPOS ---------- */
+.checkout-campo {
+    margin-bottom: 16px;
+}
+ 
+.checkout-campo label {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--negro);
+    font-size: 14px;
+    font-weight: 700;
+}
+ 
+.checkout-campo input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border: 1px solid #dedee2;
+    border-radius: 14px;
+    background: #fff;
+    color: #111;
+    font-size: 16px;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+}
+ 
+.checkout-campo input:focus {
+    border-color: var(--negro);
+    box-shadow: 0 0 0 3px rgba(11, 11, 12, 0.12);
+}
+ 
+.checkout-campo.con-error input {
+    border-color: var(--rojo);
+}
+ 
+.checkout-campo__error {
+    margin: 6px 0 0;
+    color: var(--rojo-oscuro);
+    font-size: 13px;
+    font-weight: 600;
+}
+ 
+/* ---------- PASO 3: MEDIOS DE PAGO ---------- */
+.checkout-medios {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 0;
+    margin: 0 0 22px;
+    padding: 0;
+    border: 0;
+}
+ 
+.checkout-medio {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+ 
+/* El radio real queda encima, invisible, para que todo el bloque sea clickeable */
+.checkout-medio input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+ 
+.checkout-medio__caja {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 72px;
+    padding: 14px 20px;
+    border: 1px solid #dedee2;
+    border-radius: 18px;
+    background: #fff;
+    color: #111;
+    transition: background .3s, border-color .3s, color .3s;
+}
+ 
+.checkout-medio__icono {
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #f4f4f5;
+    font-size: 16px;
+    transition: background .3s;
+}
+ 
+.checkout-medio__titulo {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+}
+ 
+.checkout-medio__desc {
+    display: block;
+    color: #85858b;
+    font-size: 13px;
+}
+ 
+/* Hover y seleccionado: mismo estilo que las entradas */
+.checkout-medio:hover .checkout-medio__caja,
+.checkout-medio input:checked + .checkout-medio__caja {
+    background: #090909;
+    border-color: #090909;
+    color: #fff;
+}
+ 
+.checkout-medio:hover .checkout-medio__icono,
+.checkout-medio input:checked + .checkout-medio__caja .checkout-medio__icono {
+    background: rgba(255, 255, 255, 0.12);
+}
+ 
+.checkout-medio:hover .checkout-medio__desc,
+.checkout-medio input:checked + .checkout-medio__caja .checkout-medio__desc {
+    color: #bdbdc2;
+}
+ 
+.checkout-medio input:focus-visible + .checkout-medio__caja {
+    outline: 2px solid #090909;
+    outline-offset: 3px;
+}
+ 
+/* ---------- BOTÓN "VOLVER" (pasos 2 y 3) ---------- */
+.checkout-volver {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    color: #3f3f46;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+ 
+.checkout-volver:hover {
+    color: var(--negro);
+}
+ 
+@media (max-width: 600px) {
+    .checkout-medio__caja {
+        padding: 14px;
+        min-height: 68px;
+        border-radius: 16px;
+    }
+ 
+    .checkout-medio__titulo {
+        font-size: 16px;
+    }
+}
+ 
+/* ---------- CANTIDAD EDITABLE ---------- */
+.checkout-cantidad-entradas {
+    width: 52px;
+    border-radius: 10px;
+    transition: box-shadow .2s;
+}
+ 
+.checkout-cantidad-entradas:focus {
+    box-shadow: 0 0 0 2px rgba(11, 11, 12, 0.25);
+}
+ 
+@media (max-width: 600px) {
+    .checkout-cantidad-entradas {
+        width: 44px;
+    }
+}
+ 
+/* ---------- PASO TARJETA: vencimiento + CVV en una fila ---------- */
+.checkout-campos-fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+ 
 
 /* =========================================================
    PANTALLA DE ERROR DE PAGO
