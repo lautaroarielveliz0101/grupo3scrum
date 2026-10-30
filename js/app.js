@@ -1,3 +1,153 @@
+/* ========== SWITCH MODO OSCURO / CLARO ========== */
+const temaToggle = document.getElementById("tema-toggle");
+temaToggle.checked = document.documentElement.dataset.tema === "claro";
+temaToggle.addEventListener("change", () => {
+  const tema = temaToggle.checked ? "claro" : "oscuro";
+  document.documentElement.dataset.tema = tema;
+  try { localStorage.setItem("tema", tema); } catch (e) {}
+});
+
+const mapaBing = document.querySelector("#ubicacion .ub-mapa iframe");
+if (mapaBing) {
+  const urlMapaBing = new URL(mapaBing.src);
+  const ajustarAnchoMapa = () => {
+    const nuevoAncho = Math.round(mapaBing.parentElement.clientWidth);
+    if (nuevoAncho === 0 || urlMapaBing.searchParams.get("w") === String(nuevoAncho)) return;
+
+    urlMapaBing.searchParams.set("w", String(nuevoAncho));
+    mapaBing.src = urlMapaBing.toString();
+  };
+  ajustarAnchoMapa();
+  new ResizeObserver(ajustarAnchoMapa).observe(mapaBing.parentElement);
+  window.addEventListener("resize", () => window.setTimeout(ajustarAnchoMapa, 100));
+}
+
+/* ========== BURBUJA ARRASTRABLE DE CHATBASE ========== */
+function inicializarBurbujaChat() {
+  const burbuja = document.getElementById("chatbase-bubble-button");
+  if (!burbuja || burbuja.dataset.draggable === "true") return Boolean(burbuja);
+
+  burbuja.dataset.draggable = "true";
+  burbuja.title = "Arrastrá para mover o tocá para abrir el chat";
+
+  let pointerStart = null;
+  let arrastrada = false;
+  let suprimirClick = false;
+  const posicionGuardada = (() => {
+    try {
+      const posicion = JSON.parse(localStorage.getItem("rollingchat-position"));
+      return posicion && Number.isFinite(posicion.left) && Number.isFinite(posicion.top)
+        ? posicion
+        : null;
+    } catch (error) {
+      console.warn("No se pudo recuperar la posición del chatbot.", error);
+      return null;
+    }
+  })();
+
+  function limitarPosicion(left, top) {
+    const margen = 8;
+    return {
+      left: Math.max(margen, Math.min(left, window.innerWidth - burbuja.offsetWidth - margen)),
+      top: Math.max(margen, Math.min(top, window.innerHeight - burbuja.offsetHeight - margen))
+    };
+  }
+
+  function aplicarPosicion(left, top) {
+    const posicion = limitarPosicion(left, top);
+    burbuja.style.setProperty("left", `${posicion.left}px`, "important");
+    burbuja.style.setProperty("top", `${posicion.top}px`, "important");
+    burbuja.style.setProperty("right", "auto", "important");
+    burbuja.style.setProperty("bottom", "auto", "important");
+    return posicion;
+  }
+
+  if (posicionGuardada) aplicarPosicion(posicionGuardada.left, posicionGuardada.top);
+
+  burbuja.addEventListener("pointerdown", (event) => {
+    if (!event.isPrimary || event.button !== 0) return;
+    const rect = burbuja.getBoundingClientRect();
+    pointerStart = { x: event.clientX, y: event.clientY, left: rect.left, top: rect.top };
+    arrastrada = false;
+    burbuja.setPointerCapture(event.pointerId);
+  });
+
+  burbuja.addEventListener("pointermove", (event) => {
+    if (!pointerStart || !burbuja.hasPointerCapture(event.pointerId)) return;
+    const deltaX = event.clientX - pointerStart.x;
+    const deltaY = event.clientY - pointerStart.y;
+    if (!arrastrada && Math.hypot(deltaX, deltaY) < 6) return;
+    arrastrada = true;
+    event.preventDefault();
+    aplicarPosicion(pointerStart.left + deltaX, pointerStart.top + deltaY);
+  });
+
+  burbuja.addEventListener("pointerup", () => {
+    if (arrastrada) {
+      const posicion = {
+        left: Number.parseFloat(burbuja.style.left),
+        top: Number.parseFloat(burbuja.style.top)
+      };
+      try {
+        localStorage.setItem("rollingchat-position", JSON.stringify(posicion));
+      } catch (error) {
+        console.warn("No se pudo guardar la posición del chatbot.", error);
+      }
+      suprimirClick = true;
+      window.setTimeout(() => { suprimirClick = false; }, 0);
+    }
+    pointerStart = null;
+  });
+
+  burbuja.addEventListener("pointercancel", () => { pointerStart = null; });
+  burbuja.addEventListener("click", (event) => {
+    if (!suprimirClick) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    suprimirClick = false;
+  }, true);
+
+  window.addEventListener("resize", () => {
+    const left = Number.parseFloat(burbuja.style.left);
+    const top = Number.parseFloat(burbuja.style.top);
+    if (Number.isFinite(left) && Number.isFinite(top)) aplicarPosicion(left, top);
+  });
+
+  return true;
+}
+
+function inicializarCierreChatMovil() {
+  const panel = document.getElementById("chatbase-bubble-window");
+  if (!panel) return false;
+  if (panel.querySelector(".chatbase-mobile-close")) return true;
+
+  const cerrar = document.createElement("button");
+  cerrar.type = "button";
+  cerrar.className = "chatbase-mobile-close";
+  cerrar.setAttribute("aria-label", "Cerrar chatbot");
+  cerrar.textContent = "×";
+  cerrar.addEventListener("click", () => {
+    if (typeof window.chatbase === "function") {
+      window.chatbase("close");
+      return;
+    }
+    document.getElementById("chatbase-bubble-button")?.click();
+  });
+  panel.append(cerrar);
+  return true;
+}
+
+function observarChatbase() {
+  if (inicializarBurbujaChat() && inicializarCierreChatMovil()) return;
+
+  const chatObserver = new MutationObserver(() => {
+    if (inicializarBurbujaChat() && inicializarCierreChatMovil()) chatObserver.disconnect();
+  });
+  chatObserver.observe(document.body, { childList: true, subtree: true });
+}
+
+observarChatbase();
+
 /* ========== CONTADOR REGRESIVO ========== */
 const fechaLimite = new Date(2026, 9, 31, 23, 59); // mes 9 = octubre
 

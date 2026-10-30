@@ -1,0 +1,497 @@
+/* =========================================================
+   SWITCH MODO OSCURO / CLARO
+   El tema oscuro es el diseño original; este archivo define
+   el switch y los ajustes del tema claro (html[data-tema="claro"]).
+   Va enlazado último para pisar los estilos anteriores.
+   ========================================================= */
+
+/* ===== SWITCH ===== */
+.tema-switch {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+/* El input queda invisible pero accesible para teclado y lectores de pantalla */
+.tema-switch-input {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.tema-switch-pista {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  background-color: var(--superficie);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.tema-switch-icono {
+  position: relative;
+  z-index: 1;
+  font-size: 13px;
+  line-height: 1;
+  transition: color 0.25s ease;
+}
+
+.tema-switch-luna {
+  color: var(--texto);
+}
+
+.tema-switch-sol {
+  color: var(--texto-suave);
+}
+
+.tema-switch-perilla {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--rojo);
+  transition: transform 0.25s ease;
+}
+
+.tema-switch-input:checked + .tema-switch-pista .tema-switch-perilla {
+  transform: translateX(28px);
+}
+
+.tema-switch-input:checked + .tema-switch-pista .tema-switch-luna {
+  color: var(--texto-suave);
+}
+
+.tema-switch-input:checked + .tema-switch-pista .tema-switch-sol {
+  color: #ffffff;
+}
+
+.tema-switch-input:not(:checked) + .tema-switch-pista .tema-switch-luna {
+  color: #ffffff;
+}
+
+.tema-switch:hover .tema-switch-pista {
+  border-color: var(--rojo);
+}
+
+.tema-switch-input:focus-visible + .tema-switch-pista {
+  outline: 2px solid var(--rojo);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tema-switch-pista,
+  .tema-switch-icono,
+  .tema-switch-perilla {
+    transition: none;
+  }
+}
+
+/* ===== PALETA DEL TEMA CLARO ===== */
+html[data-tema="claro"] {
+  color-scheme: light;
+
+  /* style.css */
+  --rojo: #d6111c;            /* un poco más oscuro que el original para cumplir contraste AA sobre blanco */
+  --rojo-oscuro: #a50d14;
+  --negro: #f5f5f7;           /* fondo de página */
+  --superficie: #ffffff;      /* tarjetas */
+  --borde: #e2e2e7;
+  --texto: #141416;
+  --texto-suave: #5c5c66;
+  --chip: #efeff3;
+  --rojo-profundo: rgba(214, 17, 28, 0.08);
+
+  /* sponsotrssub.css */
+  --sp-bg: #f5f5f7;
+  --sp-card: #ffffff;
+  --sp-card-border: #e2e2e7;
+  --sp-input: #f7f7f9;
+  --sp-input-border: #d4d4db;
+  --sp-text: #141416;
+  --sp-muted: #5c5c66;
+  --sp-red: #d6111c;
+  --sp-red-hover: #b80e17;
+  --sp-red-glow: rgba(214, 17, 28, 0.18);
+  --sp-ok: #148a55;
+}
+
+html[data-tema="claro"] body {
+  background-color: var(--negro) !important;
+  color: var(--texto) !important;
+}
+
+/* ===== AJUSTES POR COMPONENTE =====
+   Los estilos originales tienen colores fijos para el tema oscuro,
+   así que acá se reasignan a la paleta clara.
+   Regla general: superficies blancas con borde suave, texto casi negro,
+   y el rojo de marca solo para acentos y botones (con texto blanco). */
+
+/* Header */
+html[data-tema="claro"] .navbar {
+  background-color: #ffffff;
+  border-bottom-color: var(--borde);
+}
+
+html[data-tema="claro"] .navbar-menu {
+  border-top-color: var(--borde);
+}
+
+/* El logo es blanco sobre transparente: lo pasa a negro */
+html[data-tema="claro"] .navbar-logo img,
+html[data-tema="claro"] .footer-logo {
+  filter: brightness(0);
+}
+
+html[data-tema="claro"] .navbar-links a {
+  color: #3f3f46;
+}
+
+html[data-tema="claro"] .navbar-links a:hover {
+  color: var(--rojo);
+}
+
+html[data-tema="claro"] .menu-hamburguesa span {
+  background-color: var(--texto);
+}
+
+/* Botones rojos: el texto siempre blanco para mantener contraste */
+html[data-tema="claro"] .btn-entrada,
+html[data-tema="claro"] .btn-hero-dark,
+html[data-tema="claro"] #ubicacion .ub-btn-rojo,
+html[data-tema="claro"] .sponsor-submit,
+html[data-tema="claro"] .pago-error__btn--rojo {
+  color: #ffffff;
+}
+
+/* Hero: la tarjeta roja se mantiene igual que en oscuro (texto blanco + "PROGRAMAR?" negro) */
+html[data-tema="claro"] .badge-top .work-itala,
+html[data-tema="claro"] .badge-top .entradas-lim,
+html[data-tema="claro"] .hero-title .linea-blanca,
+html[data-tema="claro"] .hero-description {
+  color: #ffffff;
+}
+
+html[data-tema="claro"] .hero-title .linea-negra {
+  color: #0b0b0c;
+}
+
+/* Botones del hero: invierten a blanco en hover */
+html[data-tema="claro"] .btn-hero-dark {
+  border-color: #ffffff;
+}
+
+html[data-tema="claro"] .btn-hero-dark:hover,
+html[data-tema="claro"] .btn-hero-outline:hover {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: var(--rojo);
+}
+
+/* Títulos de sección que estaban en blanco fijo */
+html[data-tema="claro"] #speakers > h1,
+html[data-tema="claro"] .agenda-intro h2,
+html[data-tema="claro"] .agenda-info h3,
+html[data-tema="claro"] .titulo,
+html[data-tema="claro"] body > h1,
+html[data-tema="claro"] .sponsor__title,
+html[data-tema="claro"] .sponsor__text {
+  color: var(--texto);
+}
+
+html[data-tema="claro"] .speakers-label {
+  color: var(--rojo);
+}
+
+html[data-tema="claro"] .error-404 h2 {
+  color: var(--texto);
+}
+
+html[data-tema="claro"] .error-404 .error-texto {
+  color: var(--texto-suave);
+}
+
+/* Speakers */
+html[data-tema="claro"] .speaker-card {
+  background-color: var(--superficie);
+  border-color: var(--borde);
+  box-shadow: 0 1px 3px rgba(20, 20, 22, 0.06);
+}
+
+html[data-tema="claro"] .speaker-info h2 {
+  color: var(--texto);
+}
+
+html[data-tema="claro"] .speaker-info h3 {
+  background-color: var(--chip);
+  color: var(--texto);
+}
+
+html[data-tema="claro"] .speaker-info > h3:hover {
+  background-color: var(--rojo);
+  color: #ffffff;
+}
+
+html[data-tema="claro"] .speaker-info p {
+  color: var(--texto-suave);
+}
+
+/* Agenda: badges */
+html[data-tema="claro"] .badge-outline {
+  border-color: #d4d4db !important;
+  color: var(--texto-suave) !important;
+}
+
+html[data-tema="claro"] .badge-solid {
+  background-color: var(--texto) !important;
+  color: #ffffff !important;
+}
+
+/* Early bird + contador */
+html[data-tema="claro"] .banner-early {
+  background: linear-gradient(145deg, #fff1f1, #ffe6e7);
+  border-color: rgba(214, 17, 28, 0.2);
+}
+
+html[data-tema="claro"] .early-info p {
+  color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .caja {
+  background: var(--superficie);
+  border-color: var(--borde);
+}
+
+html[data-tema="claro"] .barra {
+  background: #e7e7ec;
+}
+
+/* Precios: la tarjeta oscura pasa a blanca; la roja se mantiene */
+html[data-tema="claro"] .card-dark {
+  background-color: var(--superficie) !important;
+  border-color: var(--borde) !important;
+  color: var(--texto) !important;
+  box-shadow: 0 10px 30px rgba(20, 20, 22, 0.08) !important;
+}
+
+html[data-tema="claro"] .card-dark.text-white,
+html[data-tema="claro"] .card-dark .card-title,
+html[data-tema="claro"] .card-dark .card-price,
+html[data-tema="claro"] .card-dark .card-features li {
+  color: var(--texto) !important;
+}
+
+html[data-tema="claro"] .card-dark .card-subtitle,
+html[data-tema="claro"] .card-dark .text-secondary {
+  color: var(--texto-suave) !important;
+}
+
+html[data-tema="claro"] .card-dark .card-old-price {
+  color: #75757e !important;
+}
+
+html[data-tema="claro"] .card-dark .check,
+html[data-tema="claro"] .card-dark .text-danger {
+  color: var(--rojo) !important;
+}
+
+html[data-tema="claro"] .card-dark .btn-outline {
+  border-color: var(--texto) !important;
+  color: var(--texto) !important;
+}
+
+html[data-tema="claro"] .card-dark .btn-outline:hover {
+  background-color: var(--texto) !important;
+  color: #ffffff !important;
+}
+
+html[data-tema="claro"] .card-dark .btn-outline-light {
+  border-color: var(--texto);
+  color: var(--texto);
+}
+
+html[data-tema="claro"] .card-dark .btn-outline-light:hover {
+  background-color: var(--texto);
+  color: #ffffff;
+}
+
+/* Checkout: el contenedor es rojo como en oscuro, así que su encabezado queda en blanco */
+html[data-tema="claro"] .checkout-compra-segura p,
+html[data-tema="claro"] #entradas .checkout-caja-titulo h2,
+html[data-tema="claro"] .checkout-caja-titulo button {
+  color: #ffffff;
+}
+
+html[data-tema="claro"] .checkout-caja-titulo button:hover,
+html[data-tema="claro"] .checkout-caja-titulo button.activo {
+  background: #0b0b0c;
+  border-color: #0b0b0c;
+  color: #ffffff;
+}
+
+html[data-tema="claro"] .pedido,
+html[data-tema="claro"] .pedido__fila--entrada p {
+  color: var(--texto);
+}
+
+/* Textos que usaban --negro como "negro" sobre blanco */
+html[data-tema="claro"] .checkout-campo label,
+html[data-tema="claro"] .checkout-volver:hover,
+html[data-tema="claro"] .pago-error__icono,
+html[data-tema="claro"] .pago-error__btn--borde {
+  color: #0b0b0c;
+}
+
+html[data-tema="claro"] .pago-error__titulo {
+  color: #0b0b0c !important;
+}
+
+html[data-tema="claro"] .checkout-campo input:focus,
+html[data-tema="claro"] .pago-error__btn--borde:hover {
+  border-color: #0b0b0c;
+}
+
+html[data-tema="claro"] .checkout-tipo-entrada span p,
+html[data-tema="claro"] .checkout-medio__desc,
+html[data-tema="claro"] .checkout-aclaracion {
+  color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .checkout-tipo-entrada:hover span p,
+html[data-tema="claro"] .checkout-tipo-entrada.activa span p {
+  color: #d4d4d8;
+}
+
+html[data-tema="claro"] .checkout-continuar {
+  background: var(--rojo);
+  color: #ffffff;
+}
+
+html[data-tema="claro"] .checkout-continuar:hover {
+  background: var(--rojo-oscuro);
+}
+
+/* Sponsors: tarjetas oscuras pasan a blancas */
+html[data-tema="claro"] .diamond-card {
+  --fondo-tarjeta: linear-gradient(160deg, #ffffff, #fbfbfc 55%, #f5f5f7);
+  --borde-luz: linear-gradient(145deg, #f1c6c9, #e2e2e7 85%);
+}
+
+html[data-tema="claro"] .gold-card,
+html[data-tema="claro"] .bronze-card {
+  background: var(--superficie);
+  border-color: var(--borde);
+}
+
+html[data-tema="claro"] .gold-card h3,
+html[data-tema="claro"] .bronze-card h3 {
+  color: var(--texto);
+}
+
+html[data-tema="claro"] .gold-card p,
+html[data-tema="claro"] .bronze-card p {
+  color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .small-logo,
+html[data-tema="claro"] .bronze-logo {
+  background: var(--chip);
+}
+
+/* Logos de bronce: tinte suave del color de cada marca */
+html[data-tema="claro"] .supabase-logo { background: #e3f6ee; }
+html[data-tema="claro"] .digitalocean-logo { background: #e4ecfb; }
+html[data-tema="claro"] .cloudflare-logo { background: #fcefe4; }
+html[data-tema="claro"] .mongodb-logo { background: #e4f4ea; }
+html[data-tema="claro"] .docker-logo { background: #e3f1fa; }
+html[data-tema="claro"] .stripe-logo { background: #ecebfc; }
+html[data-tema="claro"] .postman-logo { background: #fdeee4; }
+
+/* Acentos de color: versiones más oscuras para que se lean sobre blanco */
+html[data-tema="claro"] .diamond-icon,
+html[data-tema="claro"] .red-badge,
+html[data-tema="claro"] .red-tag,
+html[data-tema="claro"] .red-text,
+html[data-tema="claro"] .tier-diamond .tier-heading h2,
+html[data-tema="claro"] #diamond-title {
+  color: #c4121c;
+}
+
+html[data-tema="claro"] .yellow-tag,
+html[data-tema="claro"] .yellow-text,
+html[data-tema="claro"] .small-tag {
+  color: #8a6a00;
+}
+
+html[data-tema="claro"] .orange-tag,
+html[data-tema="claro"] .orange-text {
+  color: #a5520c;
+}
+
+html[data-tema="claro"] .globant-dot {
+  color: #5f7300;
+}
+
+/* Formulario "Sumate como sponsor" */
+html[data-tema="claro"] .sponsor-field label,
+html[data-tema="claro"] .sponsor-label {
+  color: #3f3f46;
+}
+
+html[data-tema="claro"] .sponsor input[type="text"],
+html[data-tema="claro"] .sponsor input[type="email"],
+html[data-tema="claro"] .sponsor select,
+html[data-tema="claro"] .sponsor textarea {
+  background: var(--sp-input);
+}
+
+html[data-tema="claro"] .sponsor-drop {
+  background: var(--sp-input);
+  border-color: #c9c9d2;
+}
+
+html[data-tema="claro"] .sponsor-drop__icon {
+  background: var(--chip);
+  color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .sponsor-drop__hint {
+  color: var(--texto-suave);
+}
+
+html[data-tema="claro"] .sponsor-preview__thumb {
+  background: repeating-conic-gradient(#ececf0 0% 25%, #ffffff 0% 50%) 50% / 16px 16px;
+}
+
+html[data-tema="claro"] .sponsor-error {
+  color: #c4121c;
+}
+
+/* Footer */
+html[data-tema="claro"] .main-footer {
+  background-color: var(--superficie);
+  border-top-color: var(--borde);
+}
+
+html[data-tema="claro"] .social-icon-btn {
+  background-color: var(--chip);
+  border-color: var(--borde);
+}
+
+html[data-tema="claro"] .social-icon-img {
+  filter: brightness(0) opacity(0.75);
+}
+
+html[data-tema="claro"] .social-icon {
+  color: var(--texto);
+}

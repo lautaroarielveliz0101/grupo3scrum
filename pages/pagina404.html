@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>error 404</title>
-    <link rel="stylesheet" href="/CSS/error404style.css">
-    <link rel="stylesheet" href="/CSS/style.css">
+    <link id="site-favicon" rel="icon" type="image/png" href="../assets/favicon/favicon-claro.png"
+        data-claro="../assets/favicon/favicon-claro.png" data-oscuro="../assets/favicon/favicon-oscuro.png">
+    <link rel="stylesheet" href="../CSS/error404style.css">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/tema-claro.css">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
     
@@ -17,8 +20,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        try {
+            const tema = localStorage.getItem("tema") || (matchMedia("(prefers-color-scheme: light)").matches ? "claro" : "oscuro");
+            document.documentElement.dataset.tema = tema;
+        } catch (e) {}
+        const favicon = document.getElementById("site-favicon");
+        const actualizarFavicon = () => {
+            favicon.href = favicon.dataset[document.documentElement.dataset.tema === "claro" ? "claro" : "oscuro"];
+        };
+        actualizarFavicon();
+        new MutationObserver(actualizarFavicon).observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["data-tema"]
+        });
+    </script>
 </head>
 <body>
+    <button class="spider-trigger" type="button" aria-label="Tocar la araña">
+        <svg class="spider-stain" viewBox="0 0 60 40" aria-hidden="true">
+            <path d="M8 21 14 15 21 16 26 10 34 13 40 10 46 16 53 18 49 24 52 29 43 31 37 28 31 33 23 29 16 32 12 27 6 26Z" />
+        </svg>
+        <svg class="spider-art" viewBox="0 0 64 48" aria-hidden="true">
+            <g class="spider-legs-outline">
+                <path d="M25 21 14 12 7 14 3 21 M24 25 12 21 5 25 3 32 M25 29 14 31 9 38 7 43 M28 31 22 38 21 44" />
+                <path d="M39 21 50 12 57 14 61 21 M40 25 52 21 59 25 61 32 M39 29 50 31 55 38 57 43 M36 31 42 38 43 44" />
+            </g>
+            <g class="spider-legs">
+                <path d="M25 21 14 12 7 14 3 21 M24 25 12 21 5 25 3 32 M25 29 14 31 9 38 7 43 M28 31 22 38 21 44" />
+                <path d="M39 21 50 12 57 14 61 21 M40 25 52 21 59 25 61 32 M39 29 50 31 55 38 57 43 M36 31 42 38 43 44" />
+            </g>
+            <ellipse cx="32" cy="29" rx="10" ry="8" />
+            <circle cx="32" cy="19" r="6" />
+            <circle class="spider-eye" cx="29.5" cy="18" r="1.5" />
+            <circle class="spider-eye" cx="34.5" cy="18" r="1.5" />
+        </svg>
+    </button>
  <!--Header RC-01-->
      <header>
     <nav class="navbar">
@@ -27,7 +64,7 @@
             <!-- Logo -->
             <a href="#" class="navbar-logo" aria-label="Rolling Code School">
                 <img
-                    src="/assets/header icons/logo-rolling-blanco.png"
+                    src="../assets/header icons/logo-rolling-blanco.png"
                     alt="Rolling Code School"
                 >
             </a>
@@ -58,6 +95,15 @@
                     <a href="#ubicacion">Cómo llegar</a>
                 </div>
 
+                <label class="tema-switch" for="tema-toggle">
+                    <input type="checkbox" role="switch" id="tema-toggle" class="tema-switch-input" aria-label="Modo claro">
+                    <span class="tema-switch-pista" aria-hidden="true">
+                        <i class="bi bi-moon-stars-fill tema-switch-icono tema-switch-luna"></i>
+                        <i class="bi bi-sun-fill tema-switch-icono tema-switch-sol"></i>
+                        <span class="tema-switch-perilla"></span>
+                    </span>
+                </label>
+
                 <a href="#entradas" class="btn-entrada">
                     Comprar entrada
                 </a>
@@ -68,13 +114,22 @@
 </header>
  <!-- FIN RC-01 -->
 
+    <div class="ghost-scene" aria-label="Fantasmas amistosos">
+        <button class="ghost" type="button" aria-label="Hacer desaparecer fantasma">
+            <img src="../assets/error404/modo claro/fantasma 1.webp" alt="" aria-hidden="true">
+        </button>
+        <button class="ghost" type="button" aria-label="Hacer desaparecer fantasma">
+            <img src="../assets/error404/modo claro/fantasma 1.webp" alt="" aria-hidden="true">
+        </button>
+        <button class="ghost" type="button" aria-label="Hacer desaparecer fantasma">
+            <img src="../assets/error404/modo claro/fantasma 1.webp" alt="" aria-hidden="true">
+        </button>
+    </div>
+
       <main class="error-404">
         <div class="error-visual">
-            <img
-                src="/assets/error404/calavera error 404.png"
-                alt=""
-                class="calavera"
-            >
+            <img src="../assets/error404/modo claro/calabaza-transparente.png" alt="" class="calavera calavera-clara">
+            <img src="../assets/error404/modo oscuro/calabaza-transparente.png" alt="" class="calavera calavera-oscura">
             <h1 class="error-numero">404</h1>
         </div>
 
@@ -99,7 +154,7 @@
     
     <a href="#" class="mb-0">
       <img 
-        src="../img/assets-rolling-workshop/logo/logo-rolling-blanco.png" 
+        src="../assets/header icons/logo-rolling-blanco.png"
         alt="Rolling Code School" 
         class="footer-logo"
       >
@@ -108,32 +163,32 @@
     <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0">
       <li>
         <a href="#" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-btn">
-          <img src="../img/assets-rolling-workshop/iconos/instagram.svg" alt="Instagram" class="social-icon-img">
+          <i class="fa-brands fa-instagram social-icon" aria-hidden="true"></i>
         </a>
       </li>
       <li>
         <a href="#" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon-btn">
-          <img src="../img/assets-rolling-workshop/iconos/facebook.svg" alt="Facebook" class="social-icon-img">
+          <i class="fa-brands fa-facebook-f social-icon" aria-hidden="true"></i>
         </a>
       </li>
       <li>
         <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon-btn">
-          <img src="../img/assets-rolling-workshop/iconos/linkedin.svg" alt="LinkedIn" class="social-icon-img">
+          <i class="fa-brands fa-linkedin-in social-icon" aria-hidden="true"></i>
         </a>
       </li>
       <li>
         <a href="#" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon-btn">
-          <img src="../img/assets-rolling-workshop/iconos/youtube.svg" alt="YouTube" class="social-icon-img">
+          <i class="fa-brands fa-youtube social-icon" aria-hidden="true"></i>
         </a>
       </li>
       <li>
         <a href="#" target="_blank" rel="noopener" aria-label="X (Twitter)" class="social-icon-btn">
-          <img src="../img/assets-rolling-workshop/iconos/x.svg" alt="X" class="social-icon-img">
+          <i class="fa-brands fa-twitter social-icon" aria-hidden="true"></i>
         </a>
       </li>
       <li>
         <a href="#" target="_blank" rel="noopener" aria-label="GitHub" class="social-icon-btn">
-          <img src="../img/assets-rolling-workshop/iconos/github.svg" alt="GitHub" class="social-icon-img">
+          <i class="fa-brands fa-github social-icon" aria-hidden="true"></i>
         </a>
       </li>
     </ul>
@@ -141,6 +196,230 @@
   </div>
 </footer>
 
+<script>
+    function playSpiderCrushSound() {
+        const AudioContextClass = window.AudioContext;
+        if (!AudioContextClass) {
+            console.warn("El navegador no admite el sonido de la araña.");
+            return;
+        }
+
+        const audioContext = new AudioContextClass();
+        const now = audioContext.currentTime;
+        const compressor = audioContext.createDynamicsCompressor();
+        const master = audioContext.createGain();
+        compressor.threshold.setValueAtTime(-20, now);
+        compressor.knee.setValueAtTime(8, now);
+        compressor.ratio.setValueAtTime(14, now);
+        compressor.attack.setValueAtTime(0.003, now);
+        compressor.release.setValueAtTime(0.18, now);
+        master.gain.setValueAtTime(1.7, now);
+        compressor.connect(master).connect(audioContext.destination);
+
+        const impact = audioContext.createOscillator();
+        const impactVolume = audioContext.createGain();
+        impact.type = "triangle";
+        impact.frequency.setValueAtTime(190, now);
+        impact.frequency.exponentialRampToValueAtTime(38, now + 0.24);
+        impactVolume.gain.setValueAtTime(0.0001, now);
+        impactVolume.gain.exponentialRampToValueAtTime(0.75, now + 0.012);
+        impactVolume.gain.exponentialRampToValueAtTime(0.0001, now + 0.28);
+        impact.connect(impactVolume).connect(compressor);
+        impact.start(now);
+        impact.stop(now + 0.29);
+
+        const noiseBuffer = audioContext.createBuffer(1, audioContext.sampleRate * 0.32, audioContext.sampleRate);
+        const noiseData = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < noiseData.length; i++) {
+            noiseData[i] = Math.random() * 2 - 1;
+        }
+
+        [0, 0.055, 0.13].forEach((delay, index) => {
+            const crunch = audioContext.createBufferSource();
+            const filter = audioContext.createBiquadFilter();
+            const crunchVolume = audioContext.createGain();
+            const start = now + delay;
+            crunch.buffer = noiseBuffer;
+            filter.type = index === 1 ? "bandpass" : "lowpass";
+            filter.frequency.setValueAtTime(index === 1 ? 1250 : 780, start);
+            filter.frequency.exponentialRampToValueAtTime(140, start + 0.22);
+            filter.Q.setValueAtTime(index === 1 ? 0.8 : 0.5, start);
+            crunchVolume.gain.setValueAtTime(0.0001, start);
+            crunchVolume.gain.exponentialRampToValueAtTime(index === 0 ? 0.72 : 0.5, start + 0.012);
+            crunchVolume.gain.exponentialRampToValueAtTime(0.0001, start + 0.24);
+            crunch.connect(filter).connect(crunchVolume).connect(compressor);
+            crunch.start(start);
+            crunch.stop(start + 0.25);
+        });
+
+        [0, 0.09, 0.17].forEach((delay, index) => {
+            const bubble = audioContext.createOscillator();
+            const bubbleVolume = audioContext.createGain();
+            const start = now + delay;
+            bubble.type = "sine";
+            bubble.frequency.setValueAtTime(115 - index * 16, start);
+            bubble.frequency.exponentialRampToValueAtTime(48 - index * 5, start + 0.13);
+            bubbleVolume.gain.setValueAtTime(0.0001, start);
+            bubbleVolume.gain.exponentialRampToValueAtTime(0.32, start + 0.012);
+            bubbleVolume.gain.exponentialRampToValueAtTime(0.0001, start + 0.15);
+            bubble.connect(bubbleVolume).connect(compressor);
+            bubble.start(start);
+            bubble.stop(start + 0.16);
+        });
+
+        window.setTimeout(() => audioContext.close(), 600);
+    }
+
+    const spiderTrigger = document.querySelector(".spider-trigger");
+    spiderTrigger.addEventListener("click", () => {
+        playSpiderCrushSound();
+        spiderTrigger.classList.add("is-splattered");
+        spiderTrigger.setAttribute("aria-label", "La araña explotó");
+        spiderTrigger.disabled = true;
+    }, { once: true });
+
+    function playGhostWooo() {
+        const AudioContextClass = window.AudioContext;
+        if (!AudioContextClass) {
+            console.warn("El navegador no admite el sonido de los fantasmas.");
+            return;
+        }
+
+        const audioContext = new AudioContextClass();
+        const now = audioContext.currentTime;
+        const compressor = audioContext.createDynamicsCompressor();
+        const master = audioContext.createGain();
+        compressor.threshold.setValueAtTime(-16, now);
+        compressor.knee.setValueAtTime(10, now);
+        compressor.ratio.setValueAtTime(8, now);
+        compressor.attack.setValueAtTime(0.006, now);
+        compressor.release.setValueAtTime(0.24, now);
+        master.gain.setValueAtTime(0.9, now);
+        compressor.connect(master).connect(audioContext.destination);
+
+        const voice = audioContext.createOscillator();
+        const formant = audioContext.createBiquadFilter();
+        const voiceVolume = audioContext.createGain();
+        const vibrato = audioContext.createOscillator();
+        const vibratoDepth = audioContext.createGain();
+        voice.type = "triangle";
+        voice.frequency.setValueAtTime(360, now);
+        voice.frequency.exponentialRampToValueAtTime(285, now + 0.55);
+        voice.frequency.exponentialRampToValueAtTime(205, now + 1.8);
+        formant.type = "bandpass";
+        formant.Q.setValueAtTime(2.2, now);
+        formant.frequency.setValueAtTime(620, now);
+        formant.frequency.linearRampToValueAtTime(890, now + 0.42);
+        formant.frequency.exponentialRampToValueAtTime(430, now + 1.75);
+        voiceVolume.gain.setValueAtTime(0.0001, now);
+        voiceVolume.gain.exponentialRampToValueAtTime(0.55, now + 0.16);
+        voiceVolume.gain.setValueAtTime(0.44, now + 0.9);
+        voiceVolume.gain.exponentialRampToValueAtTime(0.0001, now + 1.9);
+        vibrato.type = "sine";
+        vibrato.frequency.setValueAtTime(5.2, now);
+        vibratoDepth.gain.setValueAtTime(5, now);
+        vibrato.connect(vibratoDepth).connect(voice.frequency);
+        voice.connect(formant).connect(voiceVolume).connect(compressor);
+        vibrato.start(now);
+        voice.start(now);
+        voice.stop(now + 1.92);
+        vibrato.stop(now + 1.92);
+
+        const breathBuffer = audioContext.createBuffer(1, audioContext.sampleRate * 1.9, audioContext.sampleRate);
+        const breathData = breathBuffer.getChannelData(0);
+        for (let i = 0; i < breathData.length; i++) {
+            breathData[i] = Math.random() * 2 - 1;
+        }
+        const breath = audioContext.createBufferSource();
+        const breathFilter = audioContext.createBiquadFilter();
+        const breathVolume = audioContext.createGain();
+        breath.buffer = breathBuffer;
+        breathFilter.type = "bandpass";
+        breathFilter.Q.setValueAtTime(0.7, now);
+        breathFilter.frequency.setValueAtTime(1150, now);
+        breathFilter.frequency.exponentialRampToValueAtTime(520, now + 1.8);
+        breathVolume.gain.setValueAtTime(0.0001, now);
+        breathVolume.gain.exponentialRampToValueAtTime(0.09, now + 0.18);
+        breathVolume.gain.exponentialRampToValueAtTime(0.0001, now + 1.9);
+        breath.connect(breathFilter).connect(breathVolume).connect(compressor);
+        breath.start(now);
+        breath.stop(now + 1.92);
+
+        window.setTimeout(() => audioContext.close(), 2100);
+    }
+
+    const ghostScene = document.querySelector(".ghost-scene");
+    const ghosts = Array.from(ghostScene.querySelectorAll(".ghost"));
+    const ghostSizes = [50, 68, 88].sort(() => Math.random() - 0.5);
+    const ghostRevealTimers = new WeakMap();
+    function positionGhost(ghost, index) {
+        const sceneWidth = ghostScene.clientWidth;
+        const sceneHeight = ghostScene.clientHeight;
+        if (!sceneWidth || !sceneHeight || document.documentElement.dataset.tema !== "claro") return;
+
+        const previousTimer = ghostRevealTimers.get(ghost);
+        if (previousTimer) window.clearTimeout(previousTimer);
+        ghost.classList.remove("is-visible", "is-leaving");
+        void ghost.offsetWidth;
+        const size = ghostSizes[index] * Math.min(1, sceneWidth / 700);
+        const side = index === 2 ? Math.random() < 0.5 : index === 0;
+        const horizontalRange = side
+            ? [sceneWidth * 0.02, sceneWidth * 0.12]
+            : [sceneWidth * 0.88, sceneWidth * 0.96];
+        const left = horizontalRange[0] + Math.random() * (horizontalRange[1] - horizontalRange[0]);
+        const verticalRange = index === 2 ? [75, 140] : [0, 60];
+        const maxTop = Math.max(0, Math.min(sceneHeight - size * 1.15, verticalRange[1]));
+        const top = verticalRange[0] + Math.random() * Math.max(0, maxTop - verticalRange[0]);
+        ghost.style.width = `${size}px`;
+        ghost.style.height = `${size * 1.15}px`;
+        ghost.style.left = `${Math.min(left, sceneWidth - size)}px`;
+        ghost.style.top = `${top}px`;
+        const timer = window.setTimeout(() => {
+            ghostRevealTimers.delete(ghost);
+            if (!ghost.disabled && document.documentElement.dataset.tema === "claro") {
+                ghost.classList.add("is-visible");
+            }
+        }, 150 + Math.random() * 900);
+        ghostRevealTimers.set(ghost, timer);
+    }
+
+    function positionGhosts() {
+        ghosts.forEach((ghost, index) => {
+            if (!ghost.disabled) positionGhost(ghost, index);
+        });
+    }
+
+    if (document.documentElement.dataset.tema === "claro") positionGhosts();
+
+    ghosts.forEach((ghost, index) => {
+        ghost.addEventListener("click", () => {
+            playGhostWooo();
+            ghost.classList.add("is-leaving");
+            ghost.setAttribute("aria-label", "El fantasma desaparece");
+            ghost.disabled = true;
+
+            window.setTimeout(() => {
+                ghost.classList.remove("is-visible", "is-leaving");
+                ghost.disabled = false;
+                ghost.setAttribute("aria-label", "Hacer desaparecer fantasma");
+                positionGhost(ghost, index);
+            }, 10000);
+        });
+    });
+
+    const temaToggle = document.getElementById("tema-toggle");
+    temaToggle.checked = document.documentElement.dataset.tema === "claro";
+    temaToggle.addEventListener("change", () => {
+        const tema = temaToggle.checked ? "claro" : "oscuro";
+        document.documentElement.dataset.tema = tema;
+        if (tema === "claro") positionGhosts();
+        try {
+            localStorage.setItem("tema", tema);
+        } catch (error) {
+            console.error("No se pudo guardar la preferencia de tema.", error);
+        }
+    });
+</script>
 
 <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
