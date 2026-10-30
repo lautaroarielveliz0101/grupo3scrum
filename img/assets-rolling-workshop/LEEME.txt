@@ -1,8 +1,0 @@
-Assets - Workshop "¿Por dónde empiezo a programar?" - Rolling Code School
-
-logo/      Logo en PNG (910 x 300 px): blanco (para fondos oscuros) y negro (para fondos claros).
-iconos/    Íconos en SVG (24 x 24, se escalan sin perder calidad). Rojo = #e0202a.
-           Los de redes sociales (instagram, facebook, linkedin, youtube, x, github) vienen en blanco, para fondo oscuro.
-speakers/  Fotos cuadradas de 576 x 576 px, en el orden del mockup: 01 a 10.
-
-Nota: la foto de Andres Perlo es de baja resolución (192 px original, agrandada). Si hay una mejor, conviene reemplazarla.

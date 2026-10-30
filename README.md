@@ -1,109 +1,82 @@
-# Workshop Rolling Code School
+# Workshop Rolling Code School — ¿Por dónde empiezo a programar?
 
-Proyecto de landing page para un workshop de programación realizado en HTML, CSS y JavaScript. La página promociona el evento “¿Por dónde empiezo a programar?” de Rolling Code School, con información de speakers, agenda, ubicación, entradas y sponsors.
+Landing page del workshop **"¿Por dónde empiezo a programar?"** de Rolling Code School: una tarde con diez speakers para ordenar los primeros pasos en programación (qué aprender, cómo practicar y cómo mostrar lo que sabés).
 
-## Descripción general
+El sitio reúne toda la información del evento en una sola página:
 
-Este sitio está pensado como una página institucional/evento para captar inscripción a un taller de programación y fortalecer la imagen del evento. La estructura presenta:
+- **Hero** con fecha, lugar y precio de las entradas.
+- **Speakers** y **agenda** de las charlas.
+- **Precios** con contador regresivo del Early Bird y barra de cupos.
+- **Checkout** de entradas en 4 pasos (entrada, datos, pago, listo).
+- **Sponsors** por niveles (Diamante, Oro, Bronce) y formulario para sumarse como sponsor.
+- **Ubicación** con mapa y **footer** con redes.
+- **Chatbot** (RollingChat) para consultas.
+- **Switch de modo oscuro / claro** en el header, que recuerda la preferencia del usuario.
+- **Página de error 404** personalizada.
 
-- Hero principal con información destacada del evento
-- Sección de datos clave del workshop
-- Speakers con perfiles y temáticas
-- Agenda completa del evento
-- Sección de compra de entradas con cálculo automático de precio
-- Showcase de sponsors y niveles de colaboración
-- Formulario para postulación como sponsor
-- Información de ubicación y mapa
-- Footer con redes sociales
+Proyecto realizado por el Grupo 3 trabajando con la metodología Scrum.
 
-## Tecnologías utilizadas
+## Tecnologías
 
-- HTML5
-- CSS3
-- Bootstrap 5
-- JavaScript vanilla
-- Font Awesome
-- Bootstrap Icons
-- Google Fonts
+| Tecnología | Uso |
+|---|---|
+| HTML5 | Estructura de las páginas |
+| CSS3 | Estilos propios, variables CSS y tema claro |
+| JavaScript (vanilla) | Contador, barra de cupos, checkout y switch de tema |
+| [Bootstrap 5.3](https://getbootstrap.com/) | Grilla, utilidades y componentes |
+| [Bootstrap Icons](https://icons.getbootstrap.com/) y [Font Awesome 6](https://fontawesome.com/) | Íconos |
+| [Google Fonts — Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans) | Tipografía |
+| [Chatbase](https://www.chatbase.co/) | Chatbot embebido |
 
-## Funcionalidades principales
+Todas las librerías se cargan por CDN, así que no hace falta instalar dependencias.
 
-- Diseño responsive para desktop y móvil
-- Menú hamburguesa para pantallas pequeñas
-- Countdown para la fecha límite de inscripción
-- Barra de cupos disponibles
-- Selector de tipo de entrada y cálculo de subtotal, cargo y total
-- Simulación de flujo de pago con manejo de error
-- Validación de formulario de sponsor (campos requeridos, email, tamaño y tipo de archivo)
-- Vista previa de logo en la postulación de sponsor
-- Mapa de ubicación embebido
+## Instalación
 
-## Estructura del proyecto
+**Requisitos:** un navegador moderno y [Git](https://git-scm.com/). Para levantar un servidor local, cualquiera de estas opciones: la extensión **Live Server** de VS Code, Node.js o Python.
 
-```text
-grupo3scrum/
-├── index.html
-├── README.md
-├── CSS/
-│   ├── error404style.css
-│   ├── sponsors.css
-│   ├── sponsotrssub.css
-│   └── style.css
-├── assets/
-│   ├── error404/
-│   ├── header icons/
-│   ├── iconos sponssortss/
-│   └── speakers/
-├── img/
-│   └── assets-rolling-workshop/
-├── js/
-│   ├── app.js
-│   └── checkout.js
+1. Clonar el repositorio:
+
+   ```bash
+   git clone https://github.com/JoseSimonDiaz/workshop.git
+   cd workshop
+   ```
+
+2. Levantar un servidor local desde la carpeta raíz del proyecto (elegí una opción):
+
+   - **VS Code:** clic derecho sobre `index.html` → *Open with Live Server*.
+   - **Node.js:** `npx serve .`
+   - **Python:** `python -m http.server 5500`
+
+3. Abrir en el navegador la URL que indique el servidor (por ejemplo `http://localhost:5500`).
+
+> **Importante:** usá un servidor local en lugar de abrir `index.html` con doble clic. La página 404 carga sus estilos con rutas absolutas (`/CSS/...`), que solo funcionan cuando el sitio se sirve desde la raíz del proyecto.
+
+## Estructura de carpetas
+
+```
+workshop/
+├── index.html              # Landing principal (todas las secciones)
 ├── pages/
-│   └── pagina404.html
-└── ...
+│   └── pagina404.html      # Página de error 404
+├── CSS/
+│   ├── style.css           # Estilos generales de la landing
+│   ├── sponsorts.css       # Sección de sponsors (niveles y tarjetas)
+│   ├── sponsotrssub.css    # Formulario "Sumate como sponsor"
+│   ├── tema-claro.css      # Switch de tema y paleta del modo claro
+│   └── error404style.css   # Estilos de la página 404
+├── js/
+│   ├── app.js              # Switch de tema, contador regresivo y barra de cupos
+│   └── checkout.js         # Lógica del checkout de entradas
+├── assets/
+│   ├── header icons/       # Logo y favicon
+│   ├── speakers/           # Fotos de los speakers
+│   ├── iconos sponssortss/ # Logos e íconos de sponsors
+│   └── error404/           # Ilustración de la página 404
+└── README.md
 ```
 
-## Archivos principales
+## Modo oscuro / claro
 
-- `index.html`: estructura principal del sitio y contenido del evento
-- `CSS/style.css`: estilos principales del diseño
-- `CSS/sponsorts.css`: estilos del área de sponsors
-- `CSS/sponsotrssub.css`: estilos del formulario de sponsor
-- `js/app.js`: contador regresivo, validaciones y comportamiento del formulario de sponsor
-- `js/checkout.js`: lógica de compra de entradas y flujo de pago simulado
+El diseño original es oscuro. El switch del header agrega `data-tema="claro"` a la etiqueta `<html>` y guarda la elección en `localStorage`. Si el usuario todavía no eligió ningún tema, la página usa el de su sistema operativo.
 
-## Cómo ejecutar el proyecto
-
-Como es un proyecto estático, no requiere instalación de dependencias ni build tools.
-
-### Opción 1: abrir directamente
-
-Abre el archivo `index.html` en tu navegador.
-
-### Opción 2: usar un servidor local
-
-```bash
-cd c:\Users\Usuario\Desktop\proyecto\grupo3scrum
-python -m http.server 8000
-```
-
-Luego ingresa en tu navegador a:
-
-```text
-http://localhost:8000
-```
-
-## Requisitos
-
-- Navegador moderno
-- Conexión a internet para cargar Bootstrap, Font Awesome y Google Fonts
-
-## Observaciones
-
-El proyecto incluye secciones con contenido de ejemplo y validaciones front-end simuladas, especialmente en la compra de entradas y en el formulario de sponsors. No hay backend ni persistencia real de datos, por lo que el envío de formularios es únicamente una demostración visual.
-
-## Objetivo del proyecto
-
-Crear una landing page moderna y atractiva para promocionar un evento educativo y tecnológico, enfocada en captar participantes y sponsors para una comunidad de desarrollo y aprendizaje.
-
+Todo el modo claro está en `CSS/tema-claro.css`. Para ajustar un color del tema claro, editá las variables del bloque `html[data-tema="claro"]` de ese archivo.
