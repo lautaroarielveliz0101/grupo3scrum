@@ -147,10 +147,16 @@ html[data-tema="claro"] .navbar-menu {
   border-top-color: var(--borde);
 }
 
-/* El logo es blanco sobre transparente: lo pasa a negro */
-html[data-tema="claro"] .navbar-logo img,
-html[data-tema="claro"] .footer-logo {
-  filter: brightness(0);
+.rollingplus-logo-claro {
+  display: none !important;
+}
+
+html[data-tema="claro"] .rollingplus-logo-oscuro {
+  display: none !important;
+}
+
+html[data-tema="claro"] .rollingplus-logo-claro {
+  display: block !important;
 }
 
 html[data-tema="claro"] .navbar-links a {

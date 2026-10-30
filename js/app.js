@@ -178,8 +178,10 @@ function actualizarContador() {
   minEl.textContent = dosDigitos(minutos);
 }
 
-actualizarContador();
-setInterval(actualizarContador, 1000);
+if (diasEl && horasEl && minEl) {
+  actualizarContador();
+  setInterval(actualizarContador, 1000);
+}
 
 /* ========== BARRA DE CUPOS ========== */
 const CUPOS_TOTALES = 60;
@@ -203,7 +205,7 @@ function actualizarCupos() {
   barraContenedor.setAttribute("aria-valuenow", porcentaje);
 }
 
-actualizarCupos();
+if (quedanEl && porcentajeEl && barraEl && barraContenedor) actualizarCupos();
 
 function initSponsor() {
   const MAX_SIZE = 5 * 1024 * 1024; // 5 MB
@@ -212,10 +214,7 @@ function initSponsor() {
   const EMAIL_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
 
   const form = document.getElementById("sponsor-form");
-  if (!form) {
-    console.warn("[sponsor] No se encontró #sponsor-form: revisá que el HTML de la sección esté en la página.");
-    return;
-  }
+  if (!form) return;
 
   const success = document.getElementById("sp-success");
   const drop = document.getElementById("sp-drop");
