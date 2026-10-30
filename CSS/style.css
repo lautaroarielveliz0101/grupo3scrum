@@ -4060,6 +4060,50 @@ h3 a {
 
 /* fin css de speakers */
 
+@media (max-width: 500px) {
+    #speakers {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 16px;
+        padding-right: 0;
+        overflow: hidden;
+    }
+
+    #speakers .speakers-label,
+    #speakers > h1 {
+        margin-left: 0;
+    }
+
+    #speakers > h1 {
+        margin-right: 16px;
+    }
+
+    .speaker-list {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 16px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 16px 16px 0;
+    }
+
+    .speaker-card {
+        width: 224px;
+        flex: 0 0 224px;
+        scroll-snap-align: start;
+    }
+
+    .speaker-card img {
+        width: 190px;
+        height: 190px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+    }
+}
+
 /* css de ubicación */
 
 #ubicacion {

@@ -45,7 +45,7 @@ html[data-tema="claro"] .ghost-scene {
     pointer-events: auto;
     opacity: 0;
     transform-origin: center;
-    mix-blend-mode: multiply;
+
 }
 
 .ghost.is-visible {
@@ -210,6 +210,10 @@ html:not([data-tema="claro"]) .spider-trigger {
     opacity: 0.45;
     z-index: 0;
     pointer-events: none;
+}
+
+html[data-tema="claro"] .error-visual .calavera-clara {
+    opacity: 0.8;
 }
 
 html[data-tema="claro"] .error-visual .calavera-oscura,
