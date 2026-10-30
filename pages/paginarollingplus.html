@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolling plus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet" />
+<link id="site-favicon" rel="icon" type="image/png" href="./assets/favicon/favicon-claro.png"
+    data-claro="./assets/favicon/favicon-claro.png" data-oscuro="./assets/favicon/favicon-oscuro.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../CSS/style.css" />
+    <link rel="stylesheet" href="../CSS/tema-claro.css">
+    <style>
+        .plus-plans { max-width: 1080px; margin: 56px auto 72px; padding: 0 24px; color: #f5f5f5; }
+        .plus-plans__intro { max-width: 760px; margin: 0 auto 34px; text-align: center; }
+        .plus-plans__intro h1 { margin-bottom: 12px; font-size: clamp(28px, 4vw, 38px); font-weight: 800; }
+        .plus-plans__intro p, .plus-plan__description { color: #a1a1aa; line-height: 1.6; }
+        .plus-plans__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: 24px; align-items: stretch; }
+        .plus-plan { position: relative; display: flex; flex-direction: column; min-width: 0; height: 100%; padding: 26px; border: 1px solid #29292f; border-radius: 22px; background: linear-gradient(145deg, #15151a, #101014); }
+        .plus-plan--featured { border: 2px solid #e3262e; box-shadow: 0 14px 36px #e3262e18; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+        .plus-plan--featured:hover { transform: scale(1.015); border-color: #ff4c54; box-shadow: 0 16px 42px #e3262e38; }
+        .plus-plan__badge { position: absolute; top: -14px; right: 24px; padding: 7px 17px; border-radius: 20px; background: #e3262e; color: white; font-size: 13px; font-weight: 800; }
+        .plus-plan__eyebrow { margin-bottom: 12px; color: #ff525b; font-size: 14px; font-weight: 800; letter-spacing: 1px; }
+        .plus-plan__brand { width: min(190px, 70%); height: auto; margin: 0 0 18px; }
+        .plus-plan__price { margin: 0; font-size: 36px; font-weight: 800; }
+        .plus-plan__period { color: #a1a1aa; font-size: 14px; }
+        .plus-plan__saving { display: inline-block; margin: 12px 0 22px; padding: 7px 10px; border: 1px solid #087c61; border-radius: 7px; color: #34d399; font-size: 13px; }
+        .plus-plan__rule { margin: 14px 0 18px; border-color: #303038; opacity: 1; }
+        .plus-plan__list { display: grid; gap: 12px; margin: 0 0 24px; padding: 0; list-style: none; }
+        .plus-plan__list li { display: flex; gap: 10px; align-items: flex-start; }
+        .plus-plan__list i { color: #ff525b; }
+        .plus-plan__button { width: 100%; margin-top: auto; padding: 13px 18px; border: 0; border-radius: 11px; background: #e3262e; color: white; font-weight: 800; }
+        .plus-plan__button:hover { background: #c91d25; }
+        .plus-plan__button-logo { width: 82px; height: auto; margin-left: 5px; vertical-align: middle; }
+        .plus-plan__button-logo--light { display: none; }
+        html[data-tema="claro"] .plus-plan__button-logo--dark { display: none; }
+        html[data-tema="claro"] .plus-plan__button-logo--light { display: inline-block; }
+        .plus-plan--soon { color: #a1a1aa; background: #101014; }
+        .plus-plan--soon .plus-plan__badge { background: #293344; color: #94a3b8; }
+        .plus-plan--soon .plus-plan__button { border: 1px solid #303038; background: #1b1b20; color: #71717a; cursor: not-allowed; }
+        .plus-payment[hidden] { display: none; }
+        .plus-payment { position: fixed; z-index: 1100; inset: 0; display: grid; place-items: center; padding: 20px; background: #000b; }
+        .plus-payment__dialog { width: min(580px, 100%); max-height: min(90vh, 720px); overflow-y: auto; padding: 26px; border: 1px solid #33343a; border-radius: 20px; background: #18191c; color: #f4f4f5; box-shadow: 0 24px 80px #0009; }
+        .plus-payment__header { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
+        .plus-payment__header h2 { margin: 0; font-size: 20px; font-weight: 800; }
+        .plus-payment__header p, .plus-payment__hint { margin: 5px 0 18px; color: #87909b; font-size: 13px; }
+        .plus-payment__close { border: 0; background: transparent; color: #87909b; font-size: 24px; line-height: 1; }
+        .plus-payment__summary { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 18px; padding: 16px; border: 1px solid #34353b; border-radius: 13px; background: #222328; }
+        .plus-payment__summary small { display: block; margin-bottom: 5px; color: #87909b; }
+        .plus-payment__summary strong { color: #f23840; font-size: 23px; }
+        .plus-payment__methods { margin: 0; padding: 0; border: 1px solid #393a40; border-radius: 9px; }
+        .plus-payment__option + .plus-payment__option { border-top: 1px solid #393a40; }
+        .plus-payment__method { display: flex; width: 100%; gap: 14px; align-items: center; padding: 16px; border: 0; background: transparent; color: inherit; text-align: left; transition: transform .18s ease, background-color .18s ease; }
+        .plus-payment__method:hover { transform: scale(1.01); background: #ffffff08; }
+        .plus-payment__method input { accent-color: #f23840; }
+        .plus-payment__method-icon { display: grid; width: 34px; height: 30px; flex: 0 0 34px; place-items: center; font-size: 25px; }
+        .plus-payment__method-icon--mp { color: #35a9e8; font-size: 15px; font-weight: 900; letter-spacing: -1px; }
+        .plus-payment__method-icon--card { color: #f4f4f5; }
+        .plus-payment__method small { display: block; margin-top: 3px; color: #a1a1aa; }
+        .plus-payment__details[hidden] { display: none; }
+        .plus-payment__details { padding: 0 16px 16px 70px; }
+        .plus-payment__details p { margin: 4px 0 14px; color: #a1a1aa; font-size: 14px; }
+        .plus-payment__buy { display: inline-block; min-width: 150px; padding: 12px 20px; border: 0; border-radius: 8px; background: #e3262e; color: white; font-weight: 800; text-decoration: none; text-align: center; }
+        .plus-payment__secure { margin: 16px 0 0; padding-top: 14px; border-top: 1px solid #33343a; color: #77818d; font-size: 13px; }
+        .plus-payment__secure i { margin-right: 7px; color: #57c838; }
+        .plus-plan__brand--light { display: none; }
+        html[data-tema="claro"] .plus-plans { color: #202127; }
+        html[data-tema="claro"] .plus-plans__intro p, html[data-tema="claro"] .plus-plan__description { color: #5f6470; }
+        html[data-tema="claro"] .plus-plan { border-color: #dedee4; background: #fff; }
+        html[data-tema="claro"] .plus-plan--featured { border-color: #e3262e; }
+        html[data-tema="claro"] .plus-plan__rule { border-color: #dedee4; }
+        html[data-tema="claro"] .plus-plan--soon { color: #777b84; background: #f8f8fa; }
+        html[data-tema="claro"] .plus-plan__brand--dark { display: none; }
+        html[data-tema="claro"] .plus-plan__brand--light { display: block; }
+        @media (max-width: 700px) {
+            .plus-plans { margin: 38px auto 52px; padding: 0 16px; }
+            .plus-plans__grid { grid-template-columns: 1fr; gap: 28px; }
+            .plus-plan { padding: 24px 20px; }
+            .plus-payment { padding: 12px; }
+            .plus-payment__dialog { padding: 20px 16px; }
+        }
+    </style>
+</head>
+<body>
+<!--Header RC-01-->
+     <header>
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <!-- Logo -->
+            <a href="../index.html" class="navbar-logo" aria-label="Rolling Code School">
+                <img src="../assets/rolling+/rolling+-oscuro.png" alt="Rolling Code School" class="rollingplus-logo-oscuro">
+                <img src="../assets/rolling+/rolling+-claro.png" alt="Rolling Code School" class="rollingplus-logo-claro">
+            </a>
+
+            <!-- Control del menú hamburguesa -->
+            <input
+                type="checkbox"
+                id="menu-toggle"
+                class="menu-checkbox"
+            >
+
+            <!-- Icono hamburguesa: solo aparece en celulares -->
+            <label
+                for="menu-toggle"
+                class="menu-hamburguesa"
+                aria-label="Abrir o cerrar menú"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- Enlaces y botón -->
+            <div class="navbar-menu">
+                <div class="navbar-links">
+                    <a href="../index.html#speakers">Speakers</a>
+                    <a href="../index.html#agenda">Agenda</a>
+                    <a href="../index.html#ubicacion">Cómo llegar</a>
+                    <a href="#entradas" class="navbar-plus-link" aria-label="Suscribirse a Rolling+">
+                        <span class="navbar-plus-symbol" aria-hidden="true">+</span>
+                        <span class="navbar-plus-label">Suscribirse a Rolling+</span>
+                    </a>
+                </div>
+
+                <!-- Switch modo oscuro / claro -->
+                <label class="tema-switch" for="tema-toggle">
+                    <input type="checkbox" role="switch" id="tema-toggle" class="tema-switch-input" aria-label="Modo claro">
+                    <span class="tema-switch-pista" aria-hidden="true">
+                        <i class="bi bi-moon-stars-fill tema-switch-icono tema-switch-luna"></i>
+                        <i class="bi bi-sun-fill tema-switch-icono tema-switch-sol"></i>
+                        <span class="tema-switch-perilla"></span>
+                    </span>
+                </label>
+
+                <a href="../index.html#entradas" class="btn-entrada">
+                    Comprar entrada
+                </a>
+            </div>
+
+        </div>
+    </nav>
+</header>
+ <!-- FIN RC-01 -->
+
+<main class="plus-plans" id="entradas">
+    <header class="plus-plans__intro">
+        <h1>Elegí el plan perfecto para potenciar tu carrera</h1>
+        <p>Acceso ilimitado a contenidos premium, workshops en vivo, grabaciones y beneficios exclusivos para tu evolución tecnológica.</p>
+    </header>
+    <div class="plus-plans__grid">
+        <article class="plus-plan plus-plan--featured">
+            <span class="plus-plan__badge">RECOMENDADO</span>
+            <p class="plus-plan__eyebrow">INDIVIDUOS</p>
+            <img class="plus-plan__brand plus-plan__brand--dark" src="../assets/rolling+/rolling+-oscuro.png" alt="Rolling+">
+            <img class="plus-plan__brand plus-plan__brand--light" src="../assets/rolling+/rolling+-claro.png" alt="Rolling+">
+            <p class="plus-plan__price">$ 14.950<span class="plus-plan__period"> /por tiempo limitado</span></p>
+            <span class="plus-plan__saving"><i class="bi bi-tag-fill" aria-hidden="true"></i> Ahorrá hasta $350.000 en cursos</span>
+            <hr class="plus-plan__rule">
+            <strong>QUÉ INCLUYE ESTE PLAN:</strong>
+            <ul class="plus-plan__list">
+                <li><i class="bi bi-check-circle-fill"></i>Acceso ilimitado a todos los cursos del Universe</li>
+                <li><i class="bi bi-check-circle-fill"></i>Grabaciones completas de todos los Workshops</li>
+                <li><i class="bi bi-check-circle-fill"></i>Descuentos exclusivos en formaciones avanzadas</li>
+                <li><i class="bi bi-check-circle-fill"></i>Prioridad de inscripción en nuevos cursos y talleres</li>
+                <li><i class="bi bi-check-circle-fill"></i>Certificados de finalización verificables</li>
+                <li><i class="bi bi-check-circle-fill"></i>Ahorra hasta $350.000 en catálogo de contenidos</li>
+            </ul>
+            <button type="button" class="plus-plan__button" id="plus-open-payment">
+                Suscribirse a
+                <img class="plus-plan__button-logo plus-plan__button-logo--dark" src="../assets/rolling+/rolling+-oscuro.png" alt="Rolling+">
+                <img class="plus-plan__button-logo plus-plan__button-logo--light" src="../assets/rolling+/rolling+-claro.png" alt="">
+            </button>
+        </article>
+        <article class="plus-plan plus-plan--soon">
+            <span class="plus-plan__badge">PRÓXIMAMENTE</span>
+            <p class="plus-plan__eyebrow">EMPRESAS &amp; EQUIPOS</p>
+            <h2><i class="bi bi-building"></i> RollingCode Enterprise</h2>
+            <p class="plus-plan__price">A medida<span class="plus-plan__period"> /consultoría personalizada</span></p>
+            <p class="plus-plan__description">Acceso a cursos exclusivos adaptados para tu organización, mentorías en vivo y mucho más (próximamente).</p>
+            <hr class="plus-plan__rule">
+            <strong>CARACTERÍSTICAS PARA EQUIPOS:</strong>
+            <ul class="plus-plan__list">
+                <li><i class="bi bi-check-circle-fill"></i>Cursos exclusivos adaptados a tu organización</li>
+                <li><i class="bi bi-check-circle-fill"></i>Mentorías técnicas personalizadas en vivo</li>
+                <li><i class="bi bi-check-circle-fill"></i>Panel de seguimiento y métricas de desempeño</li>
+                <li><i class="bi bi-check-circle-fill"></i>Onboarding corporativo y soporte prioritario</li>
+                <li><i class="bi bi-check-circle-fill"></i>Rutas de aprendizaje a medida de tu equipo</li>
+            </ul>
+            <button type="button" class="plus-plan__button" disabled>Próximamente</button>
+        </article>
+    </div>
+</main>
+
+<div class="plus-payment" id="plus-payment" hidden>
+    <section class="plus-payment__dialog" role="dialog" aria-modal="true" aria-labelledby="plus-payment-title">
+        <header class="plus-payment__header">
+            <div>
+                <h2 id="plus-payment-title">Pagar suscripción RollingPlus</h2>
+                <p>Ingresá los datos de tu tarjeta para activar tu membresía</p>
+            </div>
+            <button type="button" class="plus-payment__close" id="plus-close-payment" aria-label="Cerrar">&times;</button>
+        </header>
+        <div class="plus-payment__summary">
+            <div><small>PLAN SELECCIONADO</small><strong>RollingCode Plus</strong> <span class="plus-plan__period">por tiempo limitado</span></div>
+            <div><small>Total a abonar</small><strong>$ 14.950</strong></div>
+        </div>
+        <h3>Medios de pago</h3>
+        <fieldset class="plus-payment__methods">
+            <legend class="visually-hidden">Elegí un medio de pago</legend>
+            <div class="plus-payment__option">
+                <label class="plus-payment__method">
+                    <input type="radio" name="plus-payment-method" value="mercado-pago">
+                    <span class="plus-payment__method-icon plus-payment__method-icon--mp" aria-hidden="true">MP</span>
+                    <span>Mercado Pago<small>Tus medios de pago preferidos</small></span>
+                </label>
+                <div class="plus-payment__details" hidden>
+                    <strong>Pagá con tu cuenta de Mercado Pago</strong>
+                    <p>Usá tus tarjetas guardadas o tu dinero disponible.</p>
+                    <a class="plus-payment__buy" href="pagina404.html"><i class="bi bi-lock-fill"></i> Comprar</a>
+                </div>
+            </div>
+            <div class="plus-payment__option">
+                <label class="plus-payment__method">
+                    <input type="radio" name="plus-payment-method" value="tarjeta">
+                    <span class="plus-payment__method-icon plus-payment__method-icon--card"><i class="bi bi-credit-card" aria-hidden="true"></i></span>
+                    <span>Tarjeta de crédito y débito</span>
+                </label>
+                <div class="plus-payment__details" hidden>
+                    <strong>Pagá con tarjeta de crédito o débito</strong>
+                    <p>Continuá para ingresar los datos de tu tarjeta de forma segura.</p>
+                    <a class="plus-payment__buy" href="pagina404.html"><i class="bi bi-lock-fill"></i> Comprar</a>
+                </div>
+            </div>
+        </fieldset>
+        <p class="plus-payment__secure"><i class="bi bi-lock-fill"></i>Transacción protegida con cifrado SSL de 256 bits procesada por Mercado Pago.</p>
+    </section>
+</div>
+
+ 
+     <!-- Footer -->
+<footer class="main-footer border-top-custom">
+  <div class="container d-flex justify-content-between align-items-center">
+    
+    <a href="#" class="mb-0">
+      <img src="../assets/rolling+/rolling+-oscuro.png" alt="Rolling Code School" class="footer-logo rollingplus-logo-oscuro">
+      <img src="../assets/rolling+/rolling+-claro.png" alt="Rolling Code School" class="footer-logo rollingplus-logo-claro">
+    </a>
+
+    <ul class="list-unstyled d-flex flex-wrap gap-3 mb-0">
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="Instagram" class="social-icon-btn">
+          <i class="fa-brands fa-instagram social-icon" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="Facebook" class="social-icon-btn">
+          <i class="fa-brands fa-facebook-f social-icon" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon-btn">
+          <i class="fa-brands fa-linkedin-in social-icon" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon-btn">
+          <i class="fa-brands fa-youtube social-icon" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="X (Twitter)" class="social-icon-btn">
+          <i class="fa-brands fa-twitter social-icon" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li>
+        <a href="pages/pagina404.html" target="_blank" rel="noopener" aria-label="GitHub" class="social-icon-btn">
+          <i class="fa-brands fa-github social-icon" aria-hidden="true"></i>
+        </a>
+      </li>
+    </ul>
+    
+  </div>
+</footer>
+
+<script>
+    const paymentModal = document.getElementById("plus-payment");
+    const openPaymentButton = document.getElementById("plus-open-payment");
+    const closePaymentButton = document.getElementById("plus-close-payment");
+    const paymentMethods = document.querySelectorAll('input[name="plus-payment-method"]');
+
+    function closePaymentModal() {
+        paymentModal.hidden = true;
+        document.body.style.overflow = "";
+        openPaymentButton.focus();
+    }
+
+    openPaymentButton.addEventListener("click", () => {
+        paymentModal.hidden = false;
+        document.body.style.overflow = "hidden";
+        closePaymentButton.focus();
+    });
+    closePaymentButton.addEventListener("click", closePaymentModal);
+    paymentModal.addEventListener("click", (event) => {
+        if (event.target === paymentModal) closePaymentModal();
+    });
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !paymentModal.hidden) closePaymentModal();
+    });
+    paymentMethods.forEach((method) => {
+        method.addEventListener("change", () => {
+            document.querySelectorAll(".plus-payment__option").forEach((option) => {
+                option.querySelector(".plus-payment__details").hidden =
+                    !option.querySelector('input[type="radio"]').checked;
+            });
+        });
+    });
+</script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL"
+        crossorigin="anonymous"></script>
+        <script src="../js/app.js"></script>
+</body>
+</html>
