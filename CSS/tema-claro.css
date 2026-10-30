@@ -104,7 +104,7 @@ html[data-tema="claro"] {
   /* style.css */
   --rojo: #d6111c;            /* un poco más oscuro que el original para cumplir contraste AA sobre blanco */
   --rojo-oscuro: #a50d14;
-  --negro: #f5f5f7;           /* fondo de página */
+  --negro: #ebebed;           /* fondo de página */
   --superficie: #ffffff;      /* tarjetas */
   --borde: #e2e2e7;
   --texto: #141416;
