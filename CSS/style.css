@@ -2489,6 +2489,7 @@ h3 a {
   padding: 8px 16px;
   cursor: pointer;
   white-space: nowrap;
+  text-decoration: none;
   transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
