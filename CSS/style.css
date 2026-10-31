@@ -2582,6 +2582,21 @@ h3 a {
   margin-bottom: 32px;
   color: var(--texto);
 }
+#promocion-entradas .eyebrow {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--rojo);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+#promocion-entradas h2 {
+  margin: 0 0 20px;
+  color: #f4f4f5;
+  font-size: clamp(2rem, 4vw, 3.0625rem);
+  font-weight: 800;
+  line-height: 1.15;
+}
 .banner-early {
   display: grid;
   grid-template-columns: 1.1fr auto 1fr;
